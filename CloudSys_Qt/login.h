@@ -16,9 +16,11 @@ public:
 
 private slots:
 
+
     void on_okButton_clicked();
 
     bool login(QString user, QString pwd);
+
 
 private:
     Ui::Login *ui;

@@ -9,25 +9,22 @@ FileHandler::FileHandler()
 
 }
 
-int FileHandler::ReadFile(QString filePath)
+QString FileHandler::ReadFile(QString filePath)
 {
-    const int MAX = 100;
     QString str;
     QFile file(filePath);
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
     {
         QMessageBox::warning(this, "Warning", "文件打开错误");
-        return -1;
     }
     QTextStream in(&file);
-    str = in.readLine();
-    QString str2[MAX];
-    for (int i = 0; i < MAX; ++i)
+
+    while(!in.atEnd())
     {
-        str2[i] = in.readLine();
+        str += in.readAll();
     }
     file.close();
-    return 1;
+    return str;
 }
 
 int FileHandler::WriteFile(QString filePath, QString content)
@@ -39,7 +36,7 @@ int FileHandler::WriteFile(QString filePath, QString content)
         return -1;
     }
     QTextStream out(&file);
-    out << content << "\n";
+    out << content;
     file.close();
     return 1;
 }
