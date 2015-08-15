@@ -14,10 +14,12 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    login.cpp
+    login.cpp \
+    filehandler.cpp
 
 HEADERS  += mainwindow.h \
-    login.h
+    login.h \
+    filehandler.h
 
 FORMS    += mainwindow.ui \
     login.ui
