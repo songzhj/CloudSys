@@ -81,3 +81,4 @@ $RECYCLE.BIN/
 
 #folder
 /build-*/
+/CloudSys_Qt/CloudSys_Qt.pro.user
