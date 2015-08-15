@@ -102,6 +102,9 @@
       <property name="inputMethodHints">
        <set>Qt::ImhNone</set>
       </property>
+      <property name="clearButtonEnabled">
+       <bool>false</bool>
+      </property>
      </widget>
     </item>
     <item row="2" column="1">
