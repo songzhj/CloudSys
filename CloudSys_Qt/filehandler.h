@@ -17,7 +17,7 @@ public:
      * @param filePath,读文件的文件路径
      * @return 1成功执行,-1执行失败文件打开失败
     */
-    int ReadFile(QString filePath);
+    QString ReadFile(QString filePath);
     /**
      * 写文件到指定路径
      * @param filePath,写文件的文件路径

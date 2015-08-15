@@ -1,4 +1,5 @@
 #include "login.h"
+#include "mainwindow.h"
 #include "ui_login.h"
 
 Login::Login(QWidget *parent) :
@@ -11,4 +12,11 @@ Login::Login(QWidget *parent) :
 Login::~Login()
 {
     delete ui;
+}
+
+void Login::on_okButton_clicked()
+{
+    this->close();
+    MainWindow * mainWindow = new MainWindow();
+    mainWindow->show();
 }
