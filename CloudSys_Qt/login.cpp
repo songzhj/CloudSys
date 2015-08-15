@@ -33,11 +33,6 @@ Login::~Login()
 
 void Login::on_okButton_clicked()
 {
-<<<<<<< HEAD
-    this->close();
-    MainWindow * mainWindow = new MainWindow();
-    mainWindow->show();
-=======
     QString user;
     QString pwd;
     QString key;
@@ -80,5 +75,5 @@ bool Login::login(QString user, QString pwd)
      * TODO: user and pwd 应该传值到服务器.
      *
      */
->>>>>>> origin/master
+
 }
