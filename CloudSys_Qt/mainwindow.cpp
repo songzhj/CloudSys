@@ -1,5 +1,9 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "login.h"
+#include "global.h"
+
+#include <qmessagebox.h>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
