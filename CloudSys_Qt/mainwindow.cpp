@@ -1,8 +1,14 @@
 #include "filehandler.h"
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+<<<<<<< HEAD
 #include <qfiledialog.h>
 #include <qlist.h>
+=======
+#include "login.h"
+#include "global.h"
+
+>>>>>>> origin/master
 #include <qmessagebox.h>
 
 MainWindow::MainWindow(QWidget *parent) :

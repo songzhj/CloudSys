@@ -2,7 +2,6 @@
 #define LOGIN_H
 
 #include <QDialog>
-
 namespace Ui {
 class Login;
 }
@@ -16,10 +15,20 @@ public:
     ~Login();
 
 private slots:
+<<<<<<< HEAD
     void on_okButton_clicked();
 
+=======
+
+    void on_okButton_clicked();
+
+    bool login(QString user, QString pwd);
+
+>>>>>>> origin/master
 private:
     Ui::Login *ui;
 };
+
+
 
 #endif // LOGIN_H
