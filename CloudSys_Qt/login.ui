@@ -19,6 +19,15 @@
   <property name="windowTitle">
    <string>登录界面</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">QDialog{
+background-color: qradialgradient(spread:repeat, cx:0.5, cy:0.5, radius:0.077, fx:0.5, fy:0.5, stop:0 rgba(0, 169, 255, 147), stop:0.497326 rgba(0, 0, 0, 147), stop:1 rgba(0, 169, 255, 147));
+color:rgb(144, 254, 255);
+}
+*{
+color:rgb(255, 255, 255);
+}</string>
+  </property>
   <property name="windowFilePath">
    <string/>
   </property>
@@ -42,6 +51,12 @@
      <bold>true</bold>
     </font>
    </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{ color:rgb(181, 209, 202)}</string>
+   </property>
    <property name="text">
     <string>加密云存储系统</string>
    </property>
@@ -64,6 +79,9 @@
     </property>
     <item row="0" column="0">
      <widget class="QLabel" name="label">
+      <property name="styleSheet">
+       <string notr="true">QLabel{color:rgb(255, 250, 247)}</string>
+      </property>
       <property name="text">
        <string>用户：</string>
       </property>
@@ -71,6 +89,15 @@
     </item>
     <item row="0" column="1">
      <widget class="QLineEdit" name="user">
+      <property name="styleSheet">
+       <string notr="true">QLineEdit{
+background-color: rgb(170, 170, 255);
+alternate-background-color: rgb(0, 0, 0);
+border-width:1px;
+border-radius:8px;
+color: rgb(255, 255, 255);
+}</string>
+      </property>
       <property name="maxLength">
        <number>20</number>
       </property>
@@ -78,6 +105,9 @@
     </item>
     <item row="1" column="0">
      <widget class="QLabel" name="label_2">
+      <property name="styleSheet">
+       <string notr="true">QLabel{color:rgb(255, 250, 247)}</string>
+      </property>
       <property name="text">
        <string>密码：</string>
       </property>
@@ -90,6 +120,15 @@
       </property>
       <property name="autoFillBackground">
        <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit{
+background-color: rgb(170, 170, 255);
+alternate-background-color: rgb(0, 0, 0);
+border-width:1px;
+border-radius:8px;
+color: rgb(255, 255, 255);
+}</string>
       </property>
       <property name="inputMethodHints">
        <set>Qt::ImhHiddenText|Qt::ImhNoAutoUppercase|Qt::ImhNoPredictiveText|Qt::ImhSensitiveData</set>
@@ -107,6 +146,9 @@
     </item>
     <item row="2" column="0">
      <widget class="QLabel" name="label_4">
+      <property name="styleSheet">
+       <string notr="true">QLabel{color:rgb(255, 250, 247)}</string>
+      </property>
       <property name="text">
        <string>口令：</string>
       </property>
@@ -114,6 +156,15 @@
     </item>
     <item row="2" column="1">
      <widget class="QLineEdit" name="key">
+      <property name="styleSheet">
+       <string notr="true">QLineEdit{
+background-color: rgb(170, 170, 255);
+alternate-background-color: rgb(0, 0, 0);
+border-width:1px;
+border-radius:8px;
+color: rgb(255, 255, 255);
+}</string>
+      </property>
       <property name="maxLength">
        <number>20</number>
       </property>
@@ -124,6 +175,9 @@
     </item>
     <item row="3" column="0">
      <widget class="QLabel" name="label_5">
+      <property name="styleSheet">
+       <string notr="true">QLabel{color:rgb(255, 250, 247)}</string>
+      </property>
       <property name="text">
        <string>确认口令：</string>
       </property>
@@ -131,6 +185,15 @@
     </item>
     <item row="3" column="1">
      <widget class="QLineEdit" name="confirmKey">
+      <property name="styleSheet">
+       <string notr="true">QLineEdit{
+background-color: rgb(170, 170, 255);
+alternate-background-color: rgb(0, 0, 0);
+border-width:1px;
+border-radius:8px;
+color: rgb(255, 255, 255);
+}</string>
+      </property>
       <property name="maxLength">
        <number>20</number>
       </property>
@@ -153,6 +216,21 @@
    <property name="focusPolicy">
     <enum>Qt::NoFocus</enum>
    </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+background-color: rgb(255, 170, 255);
+border-width:1px;
+border-radius: 10px;
+color:rgb(255, 255, 255)
+}
+
+QPushButton::pressed{
+border-width: 5px;
+border-radius: 6px;
+border-color: rgb(255, 0, 0);
+background-color: rgb(255, 0, 0);
+}</string>
+   </property>
    <property name="text">
     <string>Cancel</string>
    </property>
@@ -165,6 +243,21 @@
      <width>75</width>
      <height>23</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+background-color: rgb(255, 170, 255);
+border-width:1px;
+border-radius: 10px;
+color:rgb(255, 255, 255)
+}
+
+QPushButton::pressed{
+border-width: 5px;
+border-radius: 6px;
+border-color: rgb(0, 0, 0);
+background-color: rgb(0, 0, 0);
+}</string>
    </property>
    <property name="text">
     <string>OK</string>

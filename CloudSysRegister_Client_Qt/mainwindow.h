@@ -19,7 +19,7 @@ public:
 
 private slots:
     void on_register_2_clicked();
-    bool readMes();
+    void readMes();
 
 private:
     Ui::MainWindow *ui;
