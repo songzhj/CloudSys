@@ -4,9 +4,12 @@
 
 #include <qfiledialog.h>
 #include <qlist.h>
+#include <qlistwidget.h>
 
 #include "login.h"
 #include "global.h"
+#include "iconprovider.h"
+#include "iconsdisplaywidget.h"
 
 
 #include <qmessagebox.h>
@@ -61,8 +64,13 @@ void MainWindow::on_openDirectionButton_clicked()
     //dir->setNameFilters(filter);
     QList<QFileInfo> *fileInfo=new QList<QFileInfo>(dir->entryInfoList(filter));
     QString fileNames = "";
+    QListWidget * fileInfos = new QListWidget;
+    IconProvider provider;
     for (QList<QFileInfo>::iterator ite = fileInfo->begin(); ite != fileInfo->end(); ++ite){
-        fileNames += (*ite).fileName() + "\r\n";
+        QString point = ".";
+        fileInfos->addItem(new QListWidgetItem(provider.fileExtensionIcon(point + (*ite).completeSuffix()), (*ite).fileName()));
     }
+    IconsDisplayWidget * displayWidget = new IconsDisplayWidget(fileInfos);
+    displayWidget->show();
     ui->textEdit->setText(fileNames);
 }
