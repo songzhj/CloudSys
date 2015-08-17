@@ -14,6 +14,18 @@ Login::Login(QWidget *parent) :
     ui->setupUi(this);
     setWindowFlags(Qt::CustomizeWindowHint | Qt::WindowMinimizeButtonHint | Qt::WindowMaximizeButtonHint | Qt::WindowCloseButtonHint);
 
+    //输入框禁用鼠标右键,文字提示
+    setEditLine();
+}
+
+/**
+*Description: 设置输入框的一些属性(禁用鼠标右键, 文字提示)
+*
+*@param: null
+*
+*@return: void
+*/
+void Login::setEditLine() {
     //禁用鼠标右键
     ui->pwd->setContextMenuPolicy(Qt::NoContextMenu);
     ui->key->setContextMenuPolicy(Qt::NoContextMenu);
@@ -31,6 +43,13 @@ Login::~Login()
     delete ui;
 }
 
+/**
+*Description: 登录按钮响应事件
+*
+*@param: null
+*
+*@return: void
+*/
 void Login::on_okButton_clicked()
 {
     QString user;
@@ -52,6 +71,13 @@ void Login::on_okButton_clicked()
         return;
     }
 
+    //新建TCP连接
+    if(!newConnect()) {
+        QMessageBox::information(this, "信息", "连接超时！请重试！");
+        return;
+    }
+
+    //向服务端传输用户账户信息并验证身份
     if(login(user, pwd)) {
         this->close();
         Global::KEY = key;
@@ -63,17 +89,51 @@ void Login::on_okButton_clicked()
     }
 }
 
+/**
+*Description: 读取套接字中的信息, 信号readyRead()的槽
+*
+*@param: null
+*
+*@return: bool
+*/
+bool Login::readMsg()
+{
+
+}
+
+/**
+*Description: 向服务器发送信息验证用户身份
+*
+*@param: user, pwd
+*
+*@return: bool
+*/
 bool Login::login(QString user, QString pwd)
 {
-    if(user == "sss" && pwd == "123"){
-        return true;
-    } else {
+    QString postfix = "\r\n";
+    QString end = "#END#\r\n"; //消息传递结束信号
+
+    QString msg = user + postfix + pwd + postfix + end;
+
+
+}
+
+/**
+*Description: 新建TCP连接
+*
+*@param: null
+*
+*@return: bool
+*/
+bool Login::newConnect()
+{
+    tcpSocket = new QTcpSocket();
+    tcpSocket->abort(); //清除之前存在的连接
+    tcpSocket->connectToHost("49.140.98.76", 23334);
+    if(!tcpSocket->waitForConnected(3 * 1000)) {
         return false;
+    } else {
+        connect(tcpSocket, SIGNAL(readyRead(), this, SLOT(readMsg())); //关联信号readyRead()和槽readMsg()
+        return true;
     }
-
-    /*
-     * TODO: user and pwd 应该传值到服务器.
-     *
-     */
-
 }

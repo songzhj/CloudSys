@@ -56,18 +56,16 @@ void MainWindow::on_register_2_clicked()
         return;
     }
 
+    connect(tcpSocket, SIGNAL(readyRead()), this, SLOT(readMes()));
     //向服务器提交数据
     if(!submit()) {
         QMessageBox::information(this, "信息", "信息提交失败, 请重试！");
         return;
     }
 
-    //服务器返回信息, 注册结果
-    if(readMes()) {
-        QMessageBox::information(this, "信息", "注册成功！");
-    } else {
-        QMessageBox::information(this, "信息", "注册失败, 用户名已存在！");
-    }
+    /*
+     * 服务器传回数据, 会使信号量readyRead()触发槽readAll(),从而判断注册结果
+     */
 
 }//on_register_2_clicked
 
@@ -78,15 +76,14 @@ void MainWindow::on_register_2_clicked()
 *
 *@return: null
 */
-bool MainWindow::readMes()
+void MainWindow::readMes()
 {
     QByteArray qba = tcpSocket->readAll();
     QString s = QString::fromStdString(qba.toStdString());
-    qCritical() << s;
     if("Y" == s) {
-        return true;
+        QMessageBox::information(this, "信息", "注册成功！");
     } else {
-        return false;
+        QMessageBox::information(this, "信息", "注册失败, 用户名已存在！");
     }
 }//readMes
 
@@ -101,14 +98,14 @@ bool MainWindow::readMes()
 */
 bool MainWindow::newConnect()
 {
-    tcpSocket = new QTcpSocket();
+    tcpSocket = new QTcpSocket;
     tcpSocket->abort(); //清除所有连接(之前连接成功但传输失败且未关闭的连接)
     tcpSocket->connectToHost("49.140.98.76", 23333); //建立连接
     const int timeout = 3 * 1000;
     if(!tcpSocket->waitForConnected(timeout)) {
         return false;
     }
-    connect(tcpSocket, SIGNAL(readyRead()), this, SLOT(readMes()));
+
     return true;
 }//newConnect
 
@@ -139,8 +136,25 @@ bool MainWindow::submit()
 {
     QString postfix = "\r\n";
     QString end = "#END#\r\n";
-    tcpSocket->write("adf\r\n");
-    tcpSocket->write(end.toLatin1());
+
+    //user, pwd, IDCard, sex, address, phoneNumber
+    QString user = ui->user->text() + postfix;
+    QString pwd = ui->pwd->text() + postfix;
+    QString IDCard = ui->IDCard->text() + postfix;
+    QString sex;
+    if(ui->sex_male->isChecked()) {
+        sex = "male";
+    } else {
+        sex = "female";
+    }
+    sex += postfix;
+    QString address = ui->address->text() + postfix;
+    QString phoneNumber = ui->phoneNumber->text() + postfix;
+
+    //合并成一条TCP msg
+    QString msg = user + pwd + IDCard + sex + address + phoneNumber + end;
+    tcpSocket->write(msg.toLatin1());
+    //判断是否提交超时
     if(!tcpSocket->waitForBytesWritten(3 * 1000)) {
         return false;
     } else {

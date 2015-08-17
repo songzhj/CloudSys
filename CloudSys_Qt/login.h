@@ -2,6 +2,7 @@
 #define LOGIN_H
 
 #include <QDialog>
+#include <QTcpSocket>
 namespace Ui {
 class Login;
 }
@@ -15,15 +16,16 @@ public:
     ~Login();
 
 private slots:
-
-
     void on_okButton_clicked();
-
-    bool login(QString user, QString pwd);
-
+    bool readMsg(); //读取套接字中的信息, 信号readyRead()的槽
 
 private:
     Ui::Login *ui;
+    QTcpSocket *tcpSocket; //TCP服务
+
+    bool login(QString user, QString pwd); //向服务端发送信息验证用户身份
+    void setEditLine(); //设置输入框属性(禁用鼠标右键, 输入提示)
+    bool newConnect(); //新建TCP连接
 };
 
 

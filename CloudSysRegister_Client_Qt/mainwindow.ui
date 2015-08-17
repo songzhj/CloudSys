@@ -10,8 +10,20 @@
     <height>310</height>
    </rect>
   </property>
+  <property name="font">
+   <font>
+    <family>Arial</family>
+    <pointsize>10</pointsize>
+    <weight>50</weight>
+    <italic>false</italic>
+    <bold>false</bold>
+   </font>
+  </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>加密云存储注册机</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow{background:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0.340909 rgba(39, 132, 175, 243), stop:0.9375 rgba(245, 240, 221, 255))}</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QWidget" name="formLayoutWidget">
@@ -20,7 +32,7 @@
       <x>29</x>
       <y>70</y>
       <width>341</width>
-      <height>201</height>
+      <height>212</height>
      </rect>
     </property>
     <layout class="QFormLayout" name="formLayout">
@@ -37,7 +49,15 @@
      <item row="0" column="1">
       <widget class="QLineEdit" name="user">
        <property name="focusPolicy">
-        <enum>Qt::ClickFocus</enum>
+        <enum>Qt::StrongFocus</enum>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">*{
+	
+	color: rgb(0, 85, 0);
+	background-color: rgb(180, 249, 255);
+}
+</string>
        </property>
       </widget>
      </item>
@@ -51,10 +71,18 @@
      <item row="1" column="1">
       <widget class="QLineEdit" name="pwd">
        <property name="focusPolicy">
-        <enum>Qt::ClickFocus</enum>
+        <enum>Qt::StrongFocus</enum>
        </property>
        <property name="acceptDrops">
         <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">*{
+	
+	color: rgb(0, 85, 0);
+	background-color: rgb(180, 249, 255);
+}
+</string>
        </property>
        <property name="echoMode">
         <enum>QLineEdit::Password</enum>
@@ -71,7 +99,15 @@
      <item row="2" column="1">
       <widget class="QLineEdit" name="IDCard">
        <property name="focusPolicy">
-        <enum>Qt::ClickFocus</enum>
+        <enum>Qt::StrongFocus</enum>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">*{
+	
+	color: rgb(0, 85, 0);
+	background-color: rgb(180, 249, 255);
+}
+</string>
        </property>
       </widget>
      </item>
@@ -92,7 +128,15 @@
      <item row="4" column="1">
       <widget class="QLineEdit" name="address">
        <property name="focusPolicy">
-        <enum>Qt::ClickFocus</enum>
+        <enum>Qt::StrongFocus</enum>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">*{
+	
+	color: rgb(0, 85, 0);
+	background-color: rgb(180, 249, 255);
+}
+</string>
        </property>
       </widget>
      </item>
@@ -106,7 +150,15 @@
      <item row="5" column="1">
       <widget class="QLineEdit" name="phoneNumber">
        <property name="focusPolicy">
-        <enum>Qt::ClickFocus</enum>
+        <enum>Qt::StrongFocus</enum>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">*{
+	
+	color: rgb(0, 85, 0);
+	background-color: rgb(180, 249, 255);
+}
+</string>
        </property>
       </widget>
      </item>
@@ -153,6 +205,9 @@
       <bold>true</bold>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">*{color:rgb(238, 255, 224)}</string>
+    </property>
     <property name="text">
      <string>加密云存储系统----用户注册机</string>
     </property>
@@ -165,6 +220,13 @@
       <width>75</width>
       <height>23</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{ border-style: outset;border-width: 1px;border-radius: 5px;border-color: #11223F;padding: 1px;
+background-color: qconicalgradient(cx:0, cy:0, angle:135, stop:0 rgba(255, 128, 0, 69), stop:0.375 rgba(255, 42, 0, 69), stop:0.423533 rgba(251, 255, 0, 145), stop:0.45 rgba(247, 255, 0, 208), stop:0.477581 rgba(255, 244, 71, 130), stop:0.518717 rgba(71, 205, 255, 130), stop:0.55 rgba(255, 255, 0, 255), stop:0.57754 rgba(74, 170, 140, 130), stop:0.625 rgba(255, 255, 0, 69), stop:1 rgba(0, 164, 255, 69));}
+
+QPushButton::hover{
+	background-color: qconicalgradient(cx:0.5, cy:0.5, angle:0, stop:0 rgba(45, 60, 12, 255), stop:0.16 rgba(136, 106, 22, 255), stop:0.225 rgba(166, 140, 41, 255), stop:0.285 rgba(204, 181, 74, 255), stop:0.345 rgba(235, 219, 102, 255), stop:0.415 rgba(245, 236, 112, 255), stop:0.52 rgba(209, 190, 76, 255), stop:0.57 rgba(187, 156, 51, 255), stop:0.635 rgba(168, 142, 42, 255), stop:0.695 rgba(202, 174, 68, 255), stop:0.75 rgba(218, 202, 86, 255), stop:0.815 rgba(208, 187, 73, 255), stop:0.88 rgba(187, 156, 51, 255), stop:0.935 rgba(137, 108, 26, 255), stop:1 rgba(35, 40, 3, 255));}</string>
     </property>
     <property name="text">
      <string>注册</string>
