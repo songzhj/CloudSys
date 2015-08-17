@@ -9,7 +9,6 @@
 #include "login.h"
 #include "global.h"
 #include "iconprovider.h"
-#include "iconsdisplaywidget.h"
 
 
 #include <qmessagebox.h>
@@ -70,7 +69,5 @@ void MainWindow::on_openDirectionButton_clicked()
         QString point = ".";
         fileInfos->addItem(new QListWidgetItem(provider.fileExtensionIcon(point + (*ite).completeSuffix()), (*ite).fileName()));
     }
-    IconsDisplayWidget * displayWidget = new IconsDisplayWidget(fileInfos);
-    displayWidget->show();
     ui->textEdit->setText(fileNames);
 }

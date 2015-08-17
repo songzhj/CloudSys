@@ -18,16 +18,16 @@ SOURCES += main.cpp\
     filehandler.cpp \
     global.cpp \
     iconprovider.cpp \
-    iconsdisplaywidget.cpp \
-    icondisplayerwidget.cpp
+    icondisplayerwidget.cpp \
+    fileinforesolver.cpp
 
 HEADERS  += mainwindow.h \
     login.h \
     filehandler.h \
     global.h \
     iconprovider.h \
-    iconsdisplaywidget.h \
-    icondisplayerwidget.h
+    icondisplayerwidget.h \
+    fileinforesolver.h
 
 FORMS    += mainwindow.ui \
     login.ui \
