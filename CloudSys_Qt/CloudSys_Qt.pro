@@ -32,3 +32,4 @@ HEADERS  += mainwindow.h \
 FORMS    += mainwindow.ui \
     login.ui \
     icondisplayerwidget.ui
+QT += network

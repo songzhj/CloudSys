@@ -10,9 +10,16 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+<<<<<<< HEAD
 //    Login login;
 //    login.show();
     IconDisplayerWidget widget;
+=======
+    Login login;
+    login.show();
+//    MainWindow m;
+//    m.show();
+>>>>>>> origin/master
 
     QList<QString> fileInfoList;
     fileInfoList.push_back("1.txt");
