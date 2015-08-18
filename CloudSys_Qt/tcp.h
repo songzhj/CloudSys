@@ -3,6 +3,8 @@
 
 #include <QObject>
 #include <QTcpSocket>
+#include <QEvent>
+#include <QTimer>
 
 class TCP : public QObject
 {
@@ -16,13 +18,11 @@ public:
 private:
     explicit TCP(QObject *parent = 0){}
     QTcpSocket *tcp;
-    TCP* instance;
-    bool readed;
     QString reMsg;
 
 signals:
 
 public slots:
-    void readMsg();
 };
+
 #endif // TCP_H

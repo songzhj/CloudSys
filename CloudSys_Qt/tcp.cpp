@@ -1,5 +1,6 @@
 #include "tcp.h"
 #include <QDebug>
+#include <QEventLoop>
 
 /**
 *Description: 向服务端发送消息
@@ -16,41 +17,36 @@ bool TCP::send(QString msg)
 }
 
 /**
-*Description:从服务端取回数据
-*
-*@param: null
-*
-*@return:QString
-*/
-QString TCP::receive()
-{
-    while(!readed){qDebug() << "1";}
-    readed = false;
-    return reMsg;
-}
-
-/**
-*Description: 服务端取回数据的槽函数
+*Description: 从套接字取回数据
 *
 *@param: null
 *
 *@return: void
 */
-void TCP::readMsg()
+QString TCP::receive()
 {
+    int timeout = 5 * 1000; //超时时间设置
+    QTimer t;
+    QEventLoop q;
+    t.setSingleShot(true);
+    connect(&t, SIGNAL(timeout()), &q, SLOT(quit()));  //异步调用超时退出
+    connect(tcp, SIGNAL(readyRead()), &q, SLOT(quit()));  //异步调用完成退出
+    qDebug() << "before t.start()";
+
+    t.start(timeout);
+    q.exec();   //loop开始,阻塞
     QByteArray qba = tcp->readAll();
-    reMsg = QString::fromStdString(qba.toStdString());
-    readed = true;
+    return QString::fromStdString(qba.toStdString());
+
 }
 
 TCP::TCP(QString address, qint16 port)
 {
     tcp = new QTcpSocket();
+    tcp->abort();
     tcp->connectToHost(address, port);
 
     if(!tcp->waitForConnected(3 * 1000)) {
         qDebug() << "TCP初始化连接超时. TCP::TCP(QString, qint16)";
     }
-    connect(tcp, SIGNAL(readyRead()), this, SLOT(readMsg()));
-    readed = false;
 }
