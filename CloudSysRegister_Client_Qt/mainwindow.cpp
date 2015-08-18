@@ -12,6 +12,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     //设置文本框默认
     setPlaceholderText();
+
 }
 
 
@@ -135,6 +136,7 @@ bool MainWindow::submit()
 {
     QString postfix = "\r\n";
     QString end = "#END#\r\n";
+    QString begin = "#R#\r\n";
 
     //user, pwd, email, phoneNumber
     QString user = ui->user->text() + postfix;
@@ -144,6 +146,7 @@ bool MainWindow::submit()
 
     //合并成一条TCP msg
     QString msg = user + pwd + email + phoneNumber + end;
+    tcpSocket->write(begin.toLatin1());
     tcpSocket->write(msg.toLatin1());
     //判断是否提交超时
     if(!tcpSocket->waitForBytesWritten(3 * 1000)) {
