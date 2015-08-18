@@ -36,14 +36,15 @@ public:
     */
     void show();
 private slots:
-
     void on_uploadButton_clicked();
 
-    void on_searchButton_clicked();
+    void searchListByName();
 
     void on_backButton_clicked();
 
     void on_downLoadButton_clicked();
+
+    void on_searchLineEdit_returnPressed();
 
 private:
     Ui::IconDisplayerWidget *ui;

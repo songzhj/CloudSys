@@ -10,6 +10,10 @@ IconDisplayerWidget::IconDisplayerWidget(QWidget *parent) :
     ui(new Ui::IconDisplayerWidget)
 {
     ui->setupUi(this);
+    //文字提示
+    ui->searchLineEdit->setContextMenuPolicy(Qt::NoContextMenu);
+    ui->searchLineEdit->setPlaceholderText(QString("请输入搜索内容"));
+    connect(ui->searchLineEdit, &QLineEdit::textEdited, this, &IconDisplayerWidget::searchListByName);
 }
 
 IconDisplayerWidget::~IconDisplayerWidget()
@@ -28,13 +32,13 @@ QListWidget * IconDisplayerWidget::getListWidget()
 }
 
 
-void IconDisplayerWidget::on_searchButton_clicked()
+void IconDisplayerWidget::searchListByName()
 {
     QString searchContent = ui->searchLineEdit->text();
     QList<QString> * list = fileInfoResolver->getFileInfosContains(searchContent);
-    for (QList<QString>::iterator ite = list->begin(); ite != list->end(); ++ite) {
-        qDebug() << (*ite);
-    }
+//    for (QList<QString>::iterator ite = list->begin(); ite != list->end(); ++ite) {
+//        qDebug() << (*ite);
+//    }
     ui->iconPlayerWidget->clear();
     FileInfoResolver * resolver = new FileInfoResolver(*list);
     resolver->addIconToQListWidget(this->getListWidget());
@@ -91,5 +95,10 @@ void IconDisplayerWidget::on_downLoadButton_clicked()
     QString path = QFileDialog::getExistingDirectory(NULL, tr("选择下载路径"),"D:\\",QFileDialog::ShowDirsOnly);
     //TODO 将选中的文件通过socket存储到通过文件选择器获得的文件夹目录下
 
+
+}
+
+void IconDisplayerWidget::on_searchLineEdit_returnPressed()
+{
 
 }
