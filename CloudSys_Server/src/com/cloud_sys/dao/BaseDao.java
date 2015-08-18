@@ -15,9 +15,9 @@ import com.mysql.jdbc.ResultSetMetaData;
 
 public class BaseDao {
 
-	private String url = "jdbc:mysql://localhost:3306/";
+	private String url = "jdbc:mysql://49.140.58.25:3306/";
 	private String dbs = "cloud_sys";
-	private String user = "admin";
+	private String user = "root";
 	private String pwd = "1234";
 
 	private Connection connection;
@@ -155,7 +155,7 @@ public class BaseDao {
 		HashMap<String, String> result = list.get(0);
 		Set<Entry<String, String>> set = result.entrySet();
 		for (Entry<String, String> entry: set) { 
-			System.out.println("Key:" + entry.getKey() + " Value" + entry.getValue());
+			System.out.println("Key: " + entry.getKey() + " Value: " + entry.getValue());
 		}
 		tool.close();
 	}

@@ -128,7 +128,7 @@ color:rgb(255, 255, 255);
      <rect>
       <x>10</x>
       <y>20</y>
-      <width>361</width>
+      <width>521</width>
       <height>40</height>
      </rect>
     </property>
@@ -144,67 +144,6 @@ margin:0px;
     </property>
     <property name="text">
      <string/>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="searchButton">
-    <property name="geometry">
-     <rect>
-      <x>380</x>
-      <y>20</y>
-      <width>71</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton{
-border-width:2px;
-border-radius:8px;
-border-color:rgba(119, 196, 255);
-background:rgb(121, 197, 255);
-color:rgb(255, 255, 255);
-}
-QPushButton::hover{
-border-width:2px;
-border-radius:8px;
-border-color:rgba(119, 196, 255);
-background:rgba(170, 255, 127,0.93);
-color:rgb(255, 255, 255);
-}</string>
-    </property>
-    <property name="text">
-     <string>搜索</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="backButton">
-    <property name="geometry">
-     <rect>
-      <x>460</x>
-      <y>20</y>
-      <width>71</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="focusPolicy">
-     <enum>Qt::ClickFocus</enum>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton{
-border-width:2px;
-border-radius:8px;
-border-color:rgba(119, 196, 255);
-background:rgb(121, 197, 255);
-color:rgb(255, 255, 255);
-}
-QPushButton::hover{
-border-width:2px;
-border-radius:8px;
-border-color:rgba(119, 196, 255);
-background:rgba(170, 255, 127,0.93);
-color:rgb(255, 255, 255);
-}</string>
-    </property>
-    <property name="text">
-     <string>返回</string>
     </property>
    </widget>
    <widget class="QLabel" name="label">

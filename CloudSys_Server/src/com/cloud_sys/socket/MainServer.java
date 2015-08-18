@@ -1,7 +1,6 @@
 package com.cloud_sys.socket;
 
 import java.net.ServerSocket;
-import java.net.Socket;
 
 public class MainServer {
 	public static final int SERVER_PORT = 23333; // 鏈嶅姟鐩戝惉绔彛鍙�
@@ -11,7 +10,7 @@ public class MainServer {
 		try {
 			Server = new ServerSocket(SERVER_PORT);
 			while (true) {
-				Socket client = Server.accept();
+			//	Socket client = Server.accept();
 				// TODO: 涓�涓柟娉曟潵鍒ゆ柇閫夋嫨璇锋眰鐨勬槸浠�涔堟湇鍔�,骞跺惎鍔�.
 			}
 		} catch (Exception e) {
