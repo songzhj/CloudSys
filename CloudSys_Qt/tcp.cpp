@@ -40,6 +40,25 @@ QString TCP::receive()
 
 }
 
+/**
+*Description: 断开连接
+*
+*@param:
+*
+*@return: voiv
+*/
+void TCP::shutdown()
+{
+    tcp->disconnectFromHost();
+}
+
+/**
+*Description: 建立TCP链接.
+*
+*@param: address, port
+*
+*@return:
+*/
 TCP::TCP(QString address, qint16 port)
 {
     tcp = new QTcpSocket();

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>399</width>
-    <height>310</height>
+    <height>243</height>
    </rect>
   </property>
   <property name="font">
@@ -29,10 +29,10 @@
    <widget class="QWidget" name="formLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>29</x>
-      <y>70</y>
+      <x>30</x>
+      <y>60</y>
       <width>341</width>
-      <height>212</height>
+      <height>131</height>
      </rect>
     </property>
     <layout class="QFormLayout" name="formLayout">
@@ -90,64 +90,13 @@
       </widget>
      </item>
      <item row="2" column="0">
-      <widget class="QLabel" name="IDCard_l">
-       <property name="text">
-        <string>身份证号：</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="1">
-      <widget class="QLineEdit" name="IDCard">
-       <property name="focusPolicy">
-        <enum>Qt::StrongFocus</enum>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">*{
-	
-	color: rgb(0, 85, 0);
-	background-color: rgb(180, 249, 255);
-}
-</string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="0">
-      <widget class="QLabel" name="sex">
-       <property name="text">
-        <string>性别：</string>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="0">
-      <widget class="QLabel" name="address_l">
-       <property name="text">
-        <string>住址：</string>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="1">
-      <widget class="QLineEdit" name="address">
-       <property name="focusPolicy">
-        <enum>Qt::StrongFocus</enum>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">*{
-	
-	color: rgb(0, 85, 0);
-	background-color: rgb(180, 249, 255);
-}
-</string>
-       </property>
-      </widget>
-     </item>
-     <item row="5" column="0">
       <widget class="QLabel" name="phoneNumber_l">
        <property name="text">
         <string>手机号：</string>
        </property>
       </widget>
      </item>
-     <item row="5" column="1">
+     <item row="2" column="1">
       <widget class="QLineEdit" name="phoneNumber">
        <property name="focusPolicy">
         <enum>Qt::StrongFocus</enum>
@@ -162,29 +111,27 @@
        </property>
       </widget>
      </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="IDCard_l">
+       <property name="text">
+        <string>邮箱:</string>
+       </property>
+      </widget>
+     </item>
      <item row="3" column="1">
-      <layout class="QFormLayout" name="formLayout_3">
-       <item row="0" column="0">
-        <widget class="QRadioButton" name="sex_male">
-         <property name="focusPolicy">
-          <enum>Qt::ClickFocus</enum>
-         </property>
-         <property name="text">
-          <string>男</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="1">
-        <widget class="QRadioButton" name="sex_female">
-         <property name="focusPolicy">
-          <enum>Qt::ClickFocus</enum>
-         </property>
-         <property name="text">
-          <string>女</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
+      <widget class="QLineEdit" name="email">
+       <property name="focusPolicy">
+        <enum>Qt::StrongFocus</enum>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">*{
+	
+	color: rgb(0, 85, 0);
+	background-color: rgb(180, 249, 255);
+}
+</string>
+       </property>
+      </widget>
      </item>
     </layout>
    </widget>
@@ -216,7 +163,7 @@
     <property name="geometry">
      <rect>
       <x>156</x>
-      <y>280</y>
+      <y>210</y>
       <width>75</width>
       <height>23</height>
      </rect>

@@ -12,13 +12,13 @@ class TCP : public QObject
 public:
     bool send(QString msg); //向服务端发送消息
     QString receive(); //从服务端取回数据
+    void shutdown(); //断开连接
     explicit TCP(QString address, qint16 port);
 
 
 private:
     explicit TCP(QObject *parent = 0){}
     QTcpSocket *tcp;
-    QString reMsg;
 
 signals:
 
