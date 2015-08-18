@@ -10,6 +10,18 @@
     <height>399</height>
    </rect>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>708</width>
+    <height>399</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>708</width>
+    <height>399</height>
+   </size>
+  </property>
   <property name="windowTitle">
    <string>加密云存储系统</string>
   </property>
@@ -46,15 +58,6 @@ border-radius:10px;
     <property name="uniformItemSizes">
      <bool>false</bool>
     </property>
-    <item>
-     <property name="text">
-      <string>文件1</string>
-     </property>
-     <property name="icon">
-      <iconset>
-       <normaloff>C:/Users/Administrator/Pictures/文件夹图标下载8.png</normaloff>C:/Users/Administrator/Pictures/文件夹图标下载8.png</iconset>
-     </property>
-    </item>
    </widget>
    <widget class="QPushButton" name="downLoadButton">
     <property name="geometry">
@@ -64,6 +67,9 @@ border-radius:10px;
       <width>161</width>
       <height>141</height>
      </rect>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::ClickFocus</enum>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
@@ -94,6 +100,9 @@ color:rgb(255, 255, 255);
       <height>141</height>
      </rect>
     </property>
+    <property name="focusPolicy">
+     <enum>Qt::ClickFocus</enum>
+    </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
 border-width:2px;
@@ -114,7 +123,7 @@ color:rgb(255, 255, 255);
      <string>上传</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit">
+   <widget class="QLineEdit" name="searchLineEdit">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -174,6 +183,9 @@ color:rgb(255, 255, 255);
       <width>71</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::ClickFocus</enum>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{

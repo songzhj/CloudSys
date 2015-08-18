@@ -5,6 +5,7 @@
 #include <QLineEdit>
 #include <qmessagebox.h>
 #include "global.h"
+#include "icondisplayerwidget.h"
 
 QString KEY;
 Login::Login(QWidget *parent) :
@@ -81,7 +82,7 @@ void Login::on_okButton_clicked()
     if(login(user, pwd)) {
         this->close();
         Global::KEY = key;
-        MainWindow* mainWindow = new MainWindow();
+        IconDisplayerWidget* mainWindow = new IconDisplayerWidget();
         mainWindow->show();
         QMessageBox::information(this, "信息", "登录成功！");
     } else {
@@ -133,7 +134,7 @@ bool Login::newConnect()
     if(!tcpSocket->waitForConnected(3 * 1000)) {
         return false;
     } else {
-        connect(tcpSocket, SIGNAL(readyRead(), this, SLOT(readMsg())); //关联信号readyRead()和槽readMsg()
+        connect(tcpSocket, SIGNAL(readyRead()), this, SLOT(readMsg())); //关联信号readyRead()和槽readMsg()
         return true;
     }
 }

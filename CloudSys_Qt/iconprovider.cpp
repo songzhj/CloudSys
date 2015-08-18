@@ -15,23 +15,27 @@ IconProvider::IconProvider()
 QIcon IconProvider::fileExtensionIcon(const QString &extension) const
 {
     QFileIconProvider icon_provider;
-    static QIcon icon;
-    QTemporaryFile tmp_file(QDir::tempPath() + QDir::separator() + QCoreApplication::applicationName() + "_XXXXXX" + extension);
-    tmp_file.setAutoRemove(false);
+    QFile tmp_file(QDir::tempPath() + QDir::separator() + QCoreApplication::applicationName() + "_XXXXXX" + extension);
+   // tmp_file.setAutoRemove(false);
+    QString file_name = tmp_file.fileName() ;
 
-    if(tmp_file.open())
+    //如果文件存在
+    if(tmp_file.exists())
     {
-        QString file_name = tmp_file.fileName();
-        tmp_file.write(QByteArray());
+      //  tmp_file.write(QByteArray());
         tmp_file.close();
-        icon = icon_provider.icon(QFileInfo(file_name));
      //   tmp_file.remove();
     }
     else
     {
-        qCritical()<<QString("failed to write temporary file %1") .arg(tmp_file.fileName());
+        //创建文件
+        tmp_file.open(QIODevice::WriteOnly);
+
+        tmp_file.close();
+     //   qCritical()<<QString("failed to write temporary file %1") .arg(tmp_file.fileName());
     }
 
+    QIcon icon = icon_provider.icon(QFileInfo(file_name));
     return icon;
 }
 
@@ -55,7 +59,7 @@ QString IconProvider::fileExtensionType(const QString &extension) const
     }
     else
     {
-        qCritical()<<QString("failed to write temporary file %1") .arg(tmp_file.fileName());
+  //      qCritical()<<QString("failed to write temporary file %1") .arg(tmp_file.fileName());
     }
 
     return type;

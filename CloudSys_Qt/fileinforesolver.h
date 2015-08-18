@@ -18,6 +18,12 @@ public:
      * @return
     */
     void addIconToQListWidget(QListWidget * listWidget);
+    /**
+     * 在fileInfos中获得含有content的字符串
+     * @param content 内容
+     * @return QList<QString> * 返回含有content的字符串
+    */
+    QList<QString> * getFileInfosContains(QString content);
 private:
     QList<QString> fileInfos; //文件信息链表
 };

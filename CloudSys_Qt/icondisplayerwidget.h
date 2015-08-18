@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QListWidget>
 #include <QIcon>
+#include "fileinforesolver.h"
 namespace Ui {
 class IconDisplayerWidget;
 }
@@ -28,12 +29,25 @@ public:
      * @return
     */
     QListWidget * getListWidget ();
+    /**
+     * 重载show方法,在show的同时通过socket通信将图标信息获取到,然后通过fileResolver进行解析
+     * @param
+     * @return
+    */
+    void show();
 private slots:
 
     void on_uploadButton_clicked();
 
+    void on_searchButton_clicked();
+
+    void on_backButton_clicked();
+
+    void on_downLoadButton_clicked();
+
 private:
     Ui::IconDisplayerWidget *ui;
+    FileInfoResolver * fileInfoResolver;
 };
 
 #endif // ICONDISPLAYERWIDGET_H
