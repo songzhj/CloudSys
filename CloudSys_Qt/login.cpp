@@ -78,9 +78,25 @@ void Login::on_okButton_clicked()
     }
 
     //向服务端传输用户账户信息并验证身份
-    if(login(user, pwd)) {
+    login(user, pwd);
+}
+
+/**
+*Description: 读取套接字中的信息, 信号readyRead()的槽
+*
+*@param: null
+*
+*@return: void
+*/
+void Login::readMsg()
+{
+
+    QByteArray qba = tcpSocket->readAll();
+    QString str = QString::fromStdString(qba.toStdString());
+
+    if("Y" == str) {
         this->close();
-        Global::KEY = key;
+        Global::KEY = ui->key->text();
         MainWindow* mainWindow = new MainWindow();
         mainWindow->show();
         QMessageBox::information(this, "信息", "登录成功！");
@@ -90,31 +106,25 @@ void Login::on_okButton_clicked()
 }
 
 /**
-*Description: 读取套接字中的信息, 信号readyRead()的槽
-*
-*@param: null
-*
-*@return: bool
-*/
-bool Login::readMsg()
-{
-
-}
-
-/**
 *Description: 向服务器发送信息验证用户身份
 *
 *@param: user, pwd
 *
-*@return: bool
+*@return: void
 */
-bool Login::login(QString user, QString pwd)
+void Login::login(QString user, QString pwd)
 {
     QString postfix = "\r\n";
     QString end = "#END#\r\n"; //消息传递结束信号
 
     QString msg = user + postfix + pwd + postfix + end;
 
+    tcpSocket->write(msg.toLatin1());
+
+    //等待信号响应,调用槽函数
+}
+
+void disconnectedTCP() {
 
 }
 
@@ -129,11 +139,11 @@ bool Login::newConnect()
 {
     tcpSocket = new QTcpSocket();
     tcpSocket->abort(); //清除之前存在的连接
-    tcpSocket->connectToHost("49.140.98.76", 23334);
+    tcpSocket->connectToHost("49.140.98.76", 23333);
     if(!tcpSocket->waitForConnected(3 * 1000)) {
         return false;
     } else {
-        connect(tcpSocket, SIGNAL(readyRead(), this, SLOT(readMsg())); //关联信号readyRead()和槽readMsg()
+        connect(tcpSocket, SIGNAL(readyRead()), this, SLOT(readMsg())); //关联信号readyRead()和槽readMsg()
         return true;
     }
 }
