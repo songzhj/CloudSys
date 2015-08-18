@@ -21,6 +21,7 @@ public class RegisterServer extends Thread {
 	public RegisterServer(BufferedReader dataIn, BufferedWriter dataOut) {
 		this.dataIn = dataIn;
 		this.dataOut = dataOut;
+		System.out.println(111);
 	}
 
 	/**
