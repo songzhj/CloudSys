@@ -26,8 +26,7 @@ void MainWindow::setPlaceholderText()
 {
     ui->user->setPlaceholderText("用户名");
     ui->pwd->setPlaceholderText("密码");
-    ui->IDCard->setPlaceholderText("身份证");
-    ui->address->setPlaceholderText("住址");
+    ui->email->setPlaceholderText("xxx@xx.com");
     ui->phoneNumber->setPlaceholderText("手机号");
 }//setPlaceholderText
 
@@ -118,7 +117,7 @@ bool MainWindow::newConnect()
 */
 bool MainWindow::isEmpty()
 {
-    if(ui->user->text().isEmpty() || ui->pwd->text().isEmpty() || !(ui->sex_male->isChecked() || ui->sex_female->isChecked()) || ui->address->text().isEmpty() || ui->phoneNumber->text().isEmpty() || ui->IDCard->text().isEmpty()){
+    if(ui->user->text().isEmpty() || ui->pwd->text().isEmpty() || ui->phoneNumber->text().isEmpty() || ui->email->text().isEmpty()){
         return true;
     } else {
         return false;
@@ -137,22 +136,14 @@ bool MainWindow::submit()
     QString postfix = "\r\n";
     QString end = "#END#\r\n";
 
-    //user, pwd, IDCard, sex, address, phoneNumber
+    //user, pwd, email, phoneNumber
     QString user = ui->user->text() + postfix;
     QString pwd = ui->pwd->text() + postfix;
-    QString IDCard = ui->IDCard->text() + postfix;
-    QString sex;
-    if(ui->sex_male->isChecked()) {
-        sex = "male";
-    } else {
-        sex = "female";
-    }
-    sex += postfix;
-    QString address = ui->address->text() + postfix;
+    QString email = ui->email->text() + postfix;
     QString phoneNumber = ui->phoneNumber->text() + postfix;
 
     //合并成一条TCP msg
-    QString msg = user + pwd + IDCard + sex + address + phoneNumber + end;
+    QString msg = user + pwd + email + phoneNumber + end;
     tcpSocket->write(msg.toLatin1());
     //判断是否提交超时
     if(!tcpSocket->waitForBytesWritten(3 * 1000)) {
