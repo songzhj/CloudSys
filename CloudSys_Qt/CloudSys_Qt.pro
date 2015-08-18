@@ -19,7 +19,8 @@ SOURCES += main.cpp\
     global.cpp \
     iconprovider.cpp \
     iconsdisplaywidget.cpp \
-    icondisplayerwidget.cpp
+    icondisplayerwidget.cpp \
+    tcp.cpp
 
 HEADERS  += mainwindow.h \
     login.h \
@@ -27,7 +28,8 @@ HEADERS  += mainwindow.h \
     global.h \
     iconprovider.h \
     iconsdisplaywidget.h \
-    icondisplayerwidget.h
+    icondisplayerwidget.h \
+    tcp.h
 
 FORMS    += mainwindow.ui \
     login.ui \
