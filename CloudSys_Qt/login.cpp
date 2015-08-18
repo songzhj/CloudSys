@@ -5,6 +5,7 @@
 #include <QLineEdit>
 #include <qmessagebox.h>
 #include "global.h"
+#include "icondisplayerwidget.h"
 
 QString KEY;
 Login::Login(QWidget *parent) :
@@ -78,7 +79,9 @@ void Login::on_okButton_clicked()
     }
 
     //向服务端传输用户账户信息并验证身份
+
     login(user, pwd);
+
 }
 
 /**
