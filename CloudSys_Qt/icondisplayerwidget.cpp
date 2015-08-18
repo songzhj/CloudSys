@@ -82,6 +82,10 @@ void IconDisplayerWidget::on_uploadButton_clicked()
 void IconDisplayerWidget::on_downLoadButton_clicked()
 {
     QList<QListWidgetItem*> list = ui->iconPlayerWidget->selectedItems();
+    if (list.isEmpty()){
+        QMessageBox::warning(this, "警告", "你没有选中任何文件");
+        return;
+    }
     QString selectedFileName = list.front()->text();
     qDebug() << selectedFileName;
     QString path = QFileDialog::getExistingDirectory(NULL, tr("选择下载路径"),"D:\\",QFileDialog::ShowDirsOnly);

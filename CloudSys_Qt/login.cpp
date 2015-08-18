@@ -79,19 +79,9 @@ void Login::on_okButton_clicked()
     }
 
     //向服务端传输用户账户信息并验证身份
-<<<<<<< HEAD
-    if(login(user, pwd)) {
-        this->close();
-        Global::KEY = key;
-        IconDisplayerWidget* mainWindow = new IconDisplayerWidget();
-        mainWindow->show();
-        QMessageBox::information(this, "信息", "登录成功！");
-    } else {
-        QMessageBox::information(this, "信息", "用户名或密码错误");
-    }
-=======
+
     login(user, pwd);
->>>>>>> origin/master
+
 }
 
 /**
