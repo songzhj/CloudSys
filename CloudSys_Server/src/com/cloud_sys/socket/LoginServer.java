@@ -6,31 +6,29 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import com.cloud_sys.dao.UserDao;
-import com.cloud_sys.entity.User;
 
-public class RegisterServer extends Thread {
+public class LoginServer extends Thread{
 	private BufferedReader dataIn;
 	private BufferedWriter dataOut;
 	private ArrayList<String> info = new ArrayList<String>();
 	
-	
 	/**
-	 * @param dataIn
-	 * @param dataOut
+	 * 构造
+	 * @param client
 	 */
-	public RegisterServer(BufferedReader dataIn, BufferedWriter dataOut) {
+	public LoginServer(BufferedReader dataIn, BufferedWriter dataOut) {
 		this.dataIn = dataIn;
 		this.dataOut = dataOut;
 	}
-
+	
+	
 	/**
-	 * 添加用户
+	 * 核对用户信息
 	 * @return boolean
 	 */
-    private boolean addUser() {
+    private boolean checkUser() {
     	UserDao us = new UserDao();
-    	User user = new User();
-    	if(1 == us.addUser(user)){
+    	if(us.findUserPwdByUserName(info.get(0)).equals(info.get(1))){
     		return true;
     	} else {
     		return false;
@@ -43,7 +41,7 @@ public class RegisterServer extends Thread {
 	public void run() {
 		 try {
 	            in();
-	            if(addUser()) {
+	            if(checkUser()) {
 	            	while(!out("Y")){}
 	            } else {
 	            	while(!out("N")){}
@@ -84,5 +82,4 @@ public class RegisterServer extends Thread {
     	}
     	return true;
     }	
-	
 }
