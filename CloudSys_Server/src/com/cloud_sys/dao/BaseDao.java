@@ -72,7 +72,6 @@ public class BaseDao {
 			for (int i = 0; i < args.length; i++) {
 				preparedStatement.setObject(i + 1, args[i]);
 			}
-			System.out.println(preparedStatement.toString());
 			return preparedStatement.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -106,7 +105,6 @@ public class BaseDao {
 			ResultSetMetaData rsmd = (ResultSetMetaData) resultSet
 					.getMetaData();
 			int columnCount = rsmd.getColumnCount();
-			// 输出列名
 			HashMap<String, String> resultMap = null;
 			while (resultSet.next()) {
 				for (int i = 1; i <= columnCount; i++) {
@@ -130,7 +128,6 @@ public class BaseDao {
 			ResultSetMetaData rsmd = (ResultSetMetaData) resultSet
 					.getMetaData();
 			int columnCount = rsmd.getColumnCount();
-			// 输出列名
 			HashMap<String, String> resultMap = null;
 			while (resultSet.next()) {
 				resultMap = new HashMap<String, String>();
@@ -155,7 +152,7 @@ public class BaseDao {
 		HashMap<String, String> result = list.get(0);
 		Set<Entry<String, String>> set = result.entrySet();
 		for (Entry<String, String> entry: set) { 
-			System.out.println("Key: " + entry.getKey() + " Value: " + entry.getValue());
+System.out.println("Key: " + entry.getKey() + " Value: " + entry.getValue());
 		}
 		tool.close();
 	}

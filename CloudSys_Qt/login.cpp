@@ -100,9 +100,9 @@ void Login::readMsg()
     if("Y" == str) {
         this->close();
         Global::KEY = ui->key->text();
-        MainWindow* mainWindow = new MainWindow();
-        mainWindow->show();
-        QMessageBox::information(this, "信息", "登录成功！");
+        IconDisplayerWidget * widget = new IconDisplayerWidget;
+        widget->show();
+    //    QMessageBox::information(this, "信息", "登录成功！");
     } else {
         QMessageBox::information(this, "信息", "用户名或密码错误");
     }
@@ -119,9 +119,11 @@ void Login::login(QString user, QString pwd)
 {
     QString postfix = "\r\n";
     QString end = "#END#\r\n"; //消息传递结束信号
+    QString begin = "#L#\r\n";
 
-    QString msg = user + postfix + pwd + postfix + end;
+    QString msg =user + postfix + pwd + postfix + end;
 
+    tcpSocket->write(begin.toLatin1());
     tcpSocket->write(msg.toLatin1());
 
     //等待信号响应,调用槽函数

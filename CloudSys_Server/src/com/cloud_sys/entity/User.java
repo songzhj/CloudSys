@@ -3,10 +3,16 @@ package com.cloud_sys.entity;
 public class User {
 	private String name;
 	private String password;
-	private String idCard;
-	private String gender;
-	private String address;
 	private String phone;
+	private String email;
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
 	public String getName() {
 		return name;
@@ -24,30 +30,6 @@ public class User {
 		this.password = password;
 	}
 
-	public String getIdCard() {
-		return idCard;
-	}
-
-	public void setIdCard(String idCard) {
-		this.idCard = idCard;
-	}
-
-	public String getGender() {
-		return gender;
-	}
-
-	public void setGender(String gender) {
-		this.gender = gender;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
 	public String getPhone() {
 		return phone;
 	}
@@ -59,7 +41,6 @@ public class User {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return "ĞÕÃû: " + name + " ÃÜÂë: " + password + " Éí·İÖ¤ºÅ: " + idCard + " ĞÔ±ğ: "
-				+ gender + " µØÖ·: " + address + " µç»°: " + phone;
+		return "ç”¨æˆ·å: " + name + " å¯†ç : " + password  + " ç”µè¯: " + phone + "é‚®ç®±" + email;
 	}
 }

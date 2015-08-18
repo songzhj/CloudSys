@@ -6,22 +6,21 @@ import com.cloud_sys.entity.*;
 
 public class UserDao extends BaseDao {
 	/**
-	 * Í¨¹ıÊµÌåÀàÌí¼Óµ½Êı¾İ¿â
-	 * @param user °üº¬ÓÃ»§ĞÅÏ¢µÄÊµÌå¶ÔÏó
-	 * @return 1´ú±íÖ´ĞĞÕıÈ·
+	 * é€šè¿‡å®ä½“ç±»æ·»åŠ åˆ°æ•°æ®åº“
+	 * @param user åŒ…å«ç”¨æˆ·ä¿¡æ¯çš„å®ä½“å¯¹è±¡
+	 * @return 1ä»£è¡¨æ‰§è¡Œæ­£ç¡®
 	 */
 	public int addUser(User user) {
-		String sql = "insert into user values (?,?,?,?,?,?)";
+		String sql = "insert into user values (?,?,?,?)";
 		String[] param = { user.getName(), user.getPassword(),
-				user.getIdCard(), user.getGender(), user.getAddress(),
-				user.getPhone() };
+				user.getPhone(), user.getEmail()};
 		return executeUpdate(sql, param);
 	}
 	
 	/**
-	 * Í¨¹ıÓÃ»§Ãû(Ö÷¼ü)²éÕÒÓÃ»§
-	 * @param userName ÓÃ»§Ãû
-	 * @return ¶ÔÓ¦¸ÃÓÃ»§ÃûµÄÓÃ»§ÊµÌå¶ÔÏó
+	 * é€šè¿‡ç”¨æˆ·å(ä¸»é”®)æŸ¥æ‰¾ç”¨æˆ·
+	 * @param userName ç”¨æˆ·å
+	 * @return å¯¹åº”è¯¥ç”¨æˆ·åçš„ç”¨æˆ·å®ä½“å¯¹è±¡
 	 */
 	public User findUserByUserName(String userName) {
 		String sql = "select * from user where user_name='" + userName + "'";
@@ -29,17 +28,15 @@ public class UserDao extends BaseDao {
 		User user = new User();
 		user.setName(result.get("user_name"));
 		user.setPassword(result.get("user_pwd"));
-		user.setIdCard(result.get("user_idcard"));
-		user.setGender(result.get("user_gender"));
-		user.setAddress(result.get("user_address"));
 		user.setPhone(result.get("user_phone"));
+		user.setEmail(result.get("user_mail"));
 		return user;
 	}
 	
 	/**
-	 * Í¨¹ıÓÃ»§Ãû»ñµÃÓÃ»§ÃÜÂë
-	 * @param userName ÓÃ»§Ãû
-	 * @return ÓÃ»§ÃÜÂë
+	 * é€šè¿‡ç”¨æˆ·åè·å¾—ç”¨æˆ·å¯†ç 
+	 * @param userName ç”¨æˆ·å
+	 * @return ç”¨æˆ·å¯†ç 
 	 */
 	public String findUserPwdByUserName(String userName){
 		String sql = "select user_pwd from user where user_name='" + userName + "'";
@@ -48,23 +45,22 @@ public class UserDao extends BaseDao {
 	}
 	
 	public static void main(String[] args) {
-		//²âÊÔfindUserPwdByUserNameµÄ·½·¨
+		//æµ‹è¯•findUserPwdByUserNameçš„æ–¹æ³•
 //		UserDao userDao = new UserDao();
 //		String userPwd = userDao.findUserPwdByUserName("cy");
 //		System.err.println(userPwd);
 //		
-		//²âÊÔfindUserByUserName·½·¨
+//		//æµ‹è¯•findUserByUserNameæ–¹æ³•
 //		User user = new UserDao().findUserByUserName("cy");
 //		System.out.println(user);
 		
-		//²âÊÔaddUser·½·¨
+		//æµ‹è¯•addUseræ–¹æ³•
 //		User user = new User();
-//		user.setName("chf");
+//		user.setName("yjx2");
 //		user.setPassword("123");
-//		user.setAddress("¼ªÁÖÊ¡¼ªÁÖÊĞ");
-//		user.setGender("M");
-//		user.setIdCard("72347947834203");
-//		user.setPhone("18844546470");
+//
+//		user.setPhone("731287812");
+//		user.setEmail("hahah@qq.com");
 //		UserDao userDao = new UserDao();
 //		userDao.addUser(user);
 	}
