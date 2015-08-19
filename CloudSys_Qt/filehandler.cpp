@@ -1,6 +1,7 @@
 #include "filehandler.h"
 
 #include <QFile>
+#include <QFileInfo>
 #include <QMessageBox>
 #include <QTextStream>
 
@@ -9,7 +10,7 @@ FileHandler::FileHandler()
 
 }
 
-QString FileHandler::ReadFile(QString filePath)
+QString FileHandler::readFile(QString filePath)
 {
     QString str;
     QFile file(filePath);
@@ -47,5 +48,11 @@ int FileHandler::DeleteFile(QString filePath)
      QFile file;
      file.remove(filePath);
      return 1;
+}
+
+QString FileHandler::getFileNameByFilePath(QString filePath)
+{
+    QFileInfo fileInfo(filePath);
+    return fileInfo.fileName();
 }
 

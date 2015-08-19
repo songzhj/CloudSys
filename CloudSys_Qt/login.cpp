@@ -99,7 +99,7 @@ void Login::readMsg()
 
     if("Y" == str) {
         this->close();
-        Global::KEY = ui->key->text();
+        Global::DECODING_KEY = ui->key->text();
         IconDisplayerWidget * widget = new IconDisplayerWidget;
         widget->show();
     //    QMessageBox::information(this, "信息", "登录成功！");
@@ -117,6 +117,7 @@ void Login::readMsg()
 */
 void Login::login(QString user, QString pwd)
 {
+    Global::USER_NAME = user;
     QString postfix = "\r\n";
     QString end = "#END#\r\n"; //消息传递结束信号
     QString begin = "#L#\r\n";

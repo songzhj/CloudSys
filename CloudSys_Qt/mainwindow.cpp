@@ -32,7 +32,7 @@ void MainWindow::on_readFileButton_clicked()
        QMessageBox::information(NULL, tr("Path"), tr("You didn't select any files."));
    } else {
        FileHandler handler;
-       QString content = handler.ReadFile(path);
+       QString content = handler.readFile(path);
        ui->textEdit->setText(content);
    }
 }

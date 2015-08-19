@@ -9,7 +9,12 @@ class Global
 {
 public:
     Global();
-    static QString KEY;
+    static QString DECODING_KEY;
+    static QString USER_NAME;
+    static const QString SERVER_IP;
+    static const int FTP_SERVER_UPLOAD_PORT = 23335;
+    static const int FTP_SERVER_DOWNLOAD_PORT = 23334;
+    static const int SERVICE_COMMON_PORT = 23334;
 };
 
 #endif // GLOBAL_H
