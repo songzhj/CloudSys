@@ -21,7 +21,6 @@ public class RegisterServer extends Thread {
 	public RegisterServer(BufferedReader dataIn, BufferedWriter dataOut) {
 		this.dataIn = dataIn;
 		this.dataOut = dataOut;
-		System.out.println(111);
 	}
 
 	/**
@@ -31,6 +30,10 @@ public class RegisterServer extends Thread {
     private boolean addUser() {
     	UserDao us = new UserDao();
     	User user = new User();
+    	user.setName(info.get(0));
+    	user.setPassword(info.get(1));
+    	user.setEmail(info.get(2));
+    	user.setPhone(info.get(3));
     	if(1 == us.addUser(user)){
     		return true;
     	} else {
