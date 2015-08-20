@@ -49,8 +49,11 @@ public class MainServer {
 				new UpdataServer(dataIn, dataOut).start();
 				info("#U# :: " + client.toString());
 				break;
+			case "#F#":
+				new FileGetServer(dataIn, dataOut).start();
+				info("#F# :: " + client.toString());
 			case "#E#":
-				//new Remove(dataIn, dataOut).start();
+				new Remove(dataIn, dataOut).start();
 				info("#E# :: " + client.toString());
 			default:
 				break;
