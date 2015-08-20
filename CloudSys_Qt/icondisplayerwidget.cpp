@@ -142,15 +142,16 @@ void IconDisplayerWidget::on_downLoadButton_clicked()
 
 void IconDisplayerWidget::on_deleteButton_clicked()
 {
-    int confirm = QMessageBox::warning(this, "提示", "确认删除?", QMessageBox::Yes, QMessageBox::Cancel);
-    if (confirm == -1) {
-        return;
-    }
     QList<QListWidgetItem*> list = ui->iconPlayerWidget->selectedItems();
     if (list.isEmpty()){
         QMessageBox::warning(this, "警告", "你没有选中任何文件");
         return;
     }
+    int confirm = QMessageBox::warning(this, "提示", "确认删除?", QMessageBox::Yes, QMessageBox::Cancel);
+    if (confirm == -1) {
+        return;
+    }
+
     QString fileName = list.front()->text();
     TCP tcp(Global::SERVER_IP, Global::SERVICE_COMMON_PORT);
     tcp.send("#E#");
