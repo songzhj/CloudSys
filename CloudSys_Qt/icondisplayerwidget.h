@@ -50,6 +50,8 @@ private slots:
 
     void on_downLoadButton_clicked();
 
+    void on_deleteButton_clicked();
+
 private:
     Ui::IconDisplayerWidget *ui;
     FileInfoResolver * fileInfoResolver;

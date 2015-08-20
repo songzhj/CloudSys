@@ -10,40 +10,44 @@ FileHandler::FileHandler()
 
 }
 
-QString FileHandler::readFile(QString filePath)
+QByteArray FileHandler::readFile(QString filePath)
 {
-    QString str;
     QFile file(filePath);
-    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+    if (!file.open(QIODevice::ReadOnly))
     {
         QMessageBox::warning(this, "Warning", "文件打开错误");
     }
-    QTextStream in(&file);
-
-    while(!in.atEnd())
-    {
-        str += in.readAll();
-    }
+    QByteArray content = file.readAll();
     file.close();
-    return str;
+    return content;
 }
 
-int FileHandler::WriteFile(QString filePath, QString content)
+int FileHandler::writeFile(QString filePath, QString content)
 {
+//    QFile file(fileName);
+//    if (!file.open(QIODevice::WriteOnly)) {
+//        QMessageBox::warning(0, "警告", "文件下载失败");
+//        return;
+//    }
+
+//    QTextStream out(&file);
+//    out << content;
+//    file.close();
+
     QFile file(filePath);
-    if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
-    {
-        QMessageBox::warning(this, "Warning", "文件打开错误");
+    if (!file.open(QIODevice::WriteOnly)) {
+        QMessageBox::warning(0, "警告", "文件下载失败");
         return -1;
     }
     QTextStream out(&file);
     out << content;
     file.close();
+
     return 1;
 }
 
 
-int FileHandler::DeleteFile(QString filePath)
+int FileHandler::deleteFile(QString filePath)
 {
      QFile file;
      file.remove(filePath);

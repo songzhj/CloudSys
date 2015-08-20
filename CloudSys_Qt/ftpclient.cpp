@@ -12,7 +12,7 @@ FtpClient::FtpClient(QObject *parent) :
 {
   //该QUrl类提供了一个方便的接口,用于处理URL
     url.setScheme("ftp");//设置该计划描述了URL的类型（或协议）
-    url.setHost(FTP_SERVER_IP);//设置主机地址
+    url.setHost(Global::SERVER_IP);//设置主机地址
 
   //  url.setPath(fromUnicodeToUtf(FILE_NAME.toLatin1()));//设置URL路径。该路径是自带权限后的URL的一部分，但在查询字符串之前
     url.setPort(Global::FTP_SERVER_UPLOAD_PORT);//设置URL的端口。该端口是URL的权限的一部分，如setAuthority（描述）。端口必须是介于0和65535（含）。端口设置为-1表示该端口是不确定的。
@@ -30,14 +30,11 @@ void FtpClient::downloadFile(QString filePath)
     reply = manager->get(*request);
     QEventLoop * loop  = new QEventLoop;
     connect(manager, SIGNAL(finished(QNetworkReply*)), loop, SLOT(quit()));
-    loop->exec();
-    //****************ftp********
-    QTextCodec *codec = QTextCodec::codecForName("utf8");
-    //使用utf8编码，这样才可以显示中文
-    content = codec->toUnicode(reply->readAll());
-    //将下载下来的文件通过文件流传至本地文件系统
+
+    content = reply->readAll();
     FileHandler fileHandler;
-    fileHandler.WriteFile(filePath, content);
+    fileHandler.writeFile(filePath, content);
+    loop->exec();
     reply->deleteLater();   //最后要释放reply对象
 }
 
@@ -45,23 +42,34 @@ void FtpClient::uploadFile(QString filePath)
 {
     FileHandler fileHandler;
     QString fileName = fileHandler.getFileNameByFilePath(filePath);
-    QString content = fileHandler.readFile(filePath);
+    QByteArray content = fileHandler.readFile(filePath);
 
-    url.setPath(Global::USER_NAME + "/" + fromUnicodeToUtf(fileName.toLatin1()));
+    url.setPath(fromUnicodeToUtf(fileName));
+    url.setPort(Global::FTP_SERVER_UPLOAD_PORT);
+//"FtpClient::uploadFile::url:" +
+    qDebug() <<  url.toString();
     QNetworkRequest * request = new QNetworkRequest(url);
     request->setUrl(url);
-    manager->post(*request, content.toLatin1());
+    manager->put(*request, content);
     QEventLoop * loop = new QEventLoop;
     connect(manager, SIGNAL(finished(QNetworkReply*)), loop, SLOT(quit()));
     loop->exec();
+    qDebug() << "FtpClient::uploadFile loop end";
     delete request;
 }
 
 QString FtpClient::fromUtfToUnicode(QByteArray str)//传进来的是%E6%B5%8B%E8%AF%952.txt这样的字符串
 {
+   // qDebug() << "FtpClient::fromUtfToUnicode::str:" + str;
     QTextCodec * codec = QTextCodec::codecForName("utf-8");
     QByteArray byte = QByteArray::fromPercentEncoding(str);
+   // qDebug() << "FtpClient::fromUtfToUnicode::byte:" + byte;
     return codec->toUnicode(byte);
+}
+
+QString FtpClient::fromUnicodeToUtf(QString &str)
+{
+    return str.toUtf8().toPercentEncoding();
 }
 
 QByteArray FtpClient::fromUnicodeToUtf(QByteArray str)//传进来的是"测试.txt"这样的字符串,假设对应的是"/u4234/u234"

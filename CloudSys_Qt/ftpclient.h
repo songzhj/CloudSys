@@ -40,6 +40,12 @@ public:
      * @param str unicode编码的信息
      * @return Utf-8编码的信息
     */
+    static QString fromUnicodeToUtf(QString & str);
+    /**
+     * 将Unicode的信息转为Utf-8编码的信息
+     * @param str unicode编码的信息
+     * @return Utf-8编码的信息
+    */
     static QByteArray fromUnicodeToUtf(QByteArray str);
 
 private slots:
