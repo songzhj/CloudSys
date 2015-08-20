@@ -74,12 +74,13 @@ void IconDisplayerWidget::refreshIconInfo()
     tcp.send(Global::USER_NAME);
     tcp.send("#END#");
 
-    qDebug() << "IconDisplayerWidget::refreshIconInfo::USER_NAME:" + Global::USER_NAME;
+//    qDebug() << "IconDisplayerWidget::refreshIconInfo::USER_NAME:" + Global::USER_NAME;
     QString fileNameStr = tcp.receive();
     qDebug() << fileNameStr;
     tcp.shutdown();
     QStringList fileList = fileNameStr.split("*");//要求返回的文件信息是类似于"1.txt*2.doc*3.pdf"这样的格式
     if(fileList.length() == 1 && fileList.front() == ""){
+        this->getListWidget()->clear();
         return;
     }
     if (fileInfoResolver != NULL)
@@ -151,13 +152,17 @@ void IconDisplayerWidget::on_deleteButton_clicked()
     if (confirm == -1) {
         return;
     }
-
     QString fileName = list.front()->text();
     TCP tcp(Global::SERVER_IP, Global::SERVICE_COMMON_PORT);
     tcp.send("#E#");
     tcp.send(Global::USER_NAME);
     tcp.send(FtpClient::fromUnicodeToUtf(fileName));
     tcp.send("#END#");
+    QString aff = tcp.receive();
+    if (aff == "Y") {
+      refreshIconInfo();
+    } else {
+        QMessageBox::information(this, "信息", "删除失败");
+    }
     tcp.shutdown();
-    refreshIconInfo();
 }

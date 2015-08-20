@@ -12,6 +12,7 @@
 bool TCP::send(QString msg)
 {
     msg += "\r\n";
+    qDebug() << msg;
     tcp->write(msg.toLatin1());
     return true;
 }

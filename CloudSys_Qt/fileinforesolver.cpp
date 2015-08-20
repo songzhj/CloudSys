@@ -24,9 +24,10 @@ void FileInfoResolver::addIconToQListWidget(QListWidget * listWidget)
 
 QList<QString> * FileInfoResolver::getFileInfosContains(QString content)
 {
+    content = content.toUpper();
      QList<QString> * qlist = new QList<QString>;
      for (QList<QString>::iterator ite = fileInfos.begin(); ite != fileInfos.end(); ++ite) {
-        if ((*ite).contains(content)) {
+        if ((*ite).toUpper().contains(content)) {
             qlist->push_back(*ite);
         }
      }
