@@ -42,11 +42,11 @@ public class MainServer {
 				info("#R# :: " + client.toString());
 				break;		
 			case "#D#":
-				//new DownloadServer(dataIn, dataOut).start();
+				new DownloadServer(dataIn, dataOut).start();
 				info("#D# :: " + client.toString());
 				break;
 			case "#U#":
-				//new UpdataServer(dataIn, dataOut).start();
+				new UpdataServer(dataIn, dataOut).start();
 				info("#U# :: " + client.toString());
 				break;
 			case "#E#":
