@@ -17,19 +17,19 @@ public:
      * @param filePath,读文件的文件路径
      * @return 1成功执行,-1执行失败文件打开失败
     */
-    QString readFile(QString filePath);
+    QByteArray readFile(QString filePath);
     /**
      * 写文件到指定路径
      * @param filePath,写文件的文件路径
      * @return 1成功执行,-1执行失败文件打开失败
     */
-    int WriteFile(QString filePath, QString content);
+    int writeFile(QString filePath, QByteArray content);
     /**
      * 进行删除文件操作
      * @param filePath,删除文件的文件的文件路径
      * @return 1操作正确
     */
-    int DeleteFile(QString filePath);
+    int deleteFile(QString filePath);
     /**
      * 通过文件路径获得文件名
      * @param

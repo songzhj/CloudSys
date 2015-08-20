@@ -22,7 +22,7 @@ public:
      * @param  filename 文件内容
      * @return
     */
-    void downloadFile(QString filePath);
+    void downloadFile(QString downloadFileName, QString desFilePath);
     /**
      * 发送信息
      * @param data 信息内容
@@ -35,6 +35,12 @@ public:
      * @return Unicode编码的信息
     */
     static QString fromUtfToUnicode(QByteArray str);
+    /**
+     * 将Unicode的信息转为Utf-8编码的信息
+     * @param str unicode编码的信息
+     * @return Utf-8编码的信息
+    */
+    static QString fromUnicodeToUtf(QString & str);
     /**
      * 将Unicode的信息转为Utf-8编码的信息
      * @param str unicode编码的信息

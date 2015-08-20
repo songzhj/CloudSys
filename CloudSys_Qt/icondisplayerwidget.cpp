@@ -9,7 +9,7 @@
 #include "tcp.h"
 
 IconDisplayerWidget::IconDisplayerWidget(QWidget *parent) :
-    QMainWindow(parent),
+    QMainWindow(parent),fileInfoResolver(NULL),
     ui(new Ui::IconDisplayerWidget)
 {
     ui->setupUi(this);
@@ -70,12 +70,23 @@ void IconDisplayerWidget::show()
 void IconDisplayerWidget::refreshIconInfo()
 {
     TCP tcp(Global::SERVER_IP, Global::SERVICE_COMMON_PORT);
-    tcp.send("#I#");//获取图标的指令
+    tcp.send("#F#");//获取图标的指令
+    tcp.send(Global::USER_NAME);
+    tcp.send("#END#");
+
+//    qDebug() << "IconDisplayerWidget::refreshIconInfo::USER_NAME:" + Global::USER_NAME;
     QString fileNameStr = tcp.receive();
-    QStringList fileList = fileNameStr.split("#");//要求返回的文件信息是类似于"1.txt#2.doc#3.pdf"这样的格式
+    qDebug() << fileNameStr;
+    tcp.shutdown();
+    QStringList fileList = fileNameStr.split("*");//要求返回的文件信息是类似于"1.txt*2.doc*3.pdf"这样的格式
+    if(fileList.length() == 1 && fileList.front() == ""){
+        this->getListWidget()->clear();
+        return;
+    }
     if (fileInfoResolver != NULL)
         delete fileInfoResolver;
     fileInfoResolver = new FileInfoResolver(fileList);
+    this->getListWidget()->clear();
     fileInfoResolver->addIconToQListWidget(this->getListWidget());
 }
 
@@ -93,11 +104,15 @@ void IconDisplayerWidget::on_uploadButton_clicked()
     } else {
         qDebug() << path;
         //将文件通过ftp传至服务器端然后刷新QListWidget
-        TCP tcp(Global::SERVER_IP, Global::FTP_SERVER_UPLOAD_PORT);
+        TCP tcp(Global::SERVER_IP, Global::SERVICE_COMMON_PORT);
         tcp.send("#U#");
-        tcp.shutdown();
+        tcp.send(Global::USER_NAME);
+        tcp.send("#END#");
         FtpClient client;
         client.uploadFile(path);
+        tcp.send("#OK#");
+        tcp.send("#END#");
+        tcp.shutdown();
         refreshIconInfo();
     }
 }
@@ -116,7 +131,38 @@ void IconDisplayerWidget::on_downLoadButton_clicked()
 
     TCP tcp(Global::SERVER_IP, Global::SERVICE_COMMON_PORT);
     tcp.send("#D#");
-    tcp.shutdown();
+    tcp.send(Global::USER_NAME);
+    tcp.send("#END#");
+
     FtpClient client;
-    client.downloadFile(path + "/" + selectedFileName);
+    client.downloadFile(selectedFileName, path + "/" + selectedFileName);
+    tcp.send("#OK#");
+    tcp.send("#END#");
+    tcp.shutdown();
+}
+
+void IconDisplayerWidget::on_deleteButton_clicked()
+{
+    QList<QListWidgetItem*> list = ui->iconPlayerWidget->selectedItems();
+    if (list.isEmpty()){
+        QMessageBox::warning(this, "警告", "你没有选中任何文件");
+        return;
+    }
+    int confirm = QMessageBox::warning(this, "提示", "确认删除?", QMessageBox::Yes, QMessageBox::Cancel);
+    if (confirm == -1) {
+        return;
+    }
+    QString fileName = list.front()->text();
+    TCP tcp(Global::SERVER_IP, Global::SERVICE_COMMON_PORT);
+    tcp.send("#E#");
+    tcp.send(Global::USER_NAME);
+    tcp.send(FtpClient::fromUnicodeToUtf(fileName));
+    tcp.send("#END#");
+    QString aff = tcp.receive();
+    if (aff == "Y") {
+      refreshIconInfo();
+    } else {
+        QMessageBox::information(this, "信息", "删除失败");
+    }
+    tcp.shutdown();
 }

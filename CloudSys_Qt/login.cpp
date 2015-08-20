@@ -145,7 +145,7 @@ bool Login::newConnect()
 {
     tcpSocket = new QTcpSocket();
     tcpSocket->abort(); //清除之前存在的连接
-    tcpSocket->connectToHost("49.140.98.76", 23333);
+    tcpSocket->connectToHost(Global::SERVER_IP, Global::SERVICE_COMMON_PORT);
     if(!tcpSocket->waitForConnected(3 * 1000)) {
         return false;
     } else {

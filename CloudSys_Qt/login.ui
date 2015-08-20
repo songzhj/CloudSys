@@ -99,6 +99,9 @@ padding:0px;
 margin:0px;
 }</string>
       </property>
+      <property name="text">
+       <string/>
+      </property>
       <property name="maxLength">
        <number>20</number>
       </property>
@@ -135,6 +138,9 @@ margin:0px;
       <property name="inputMethodHints">
        <set>Qt::ImhHiddenText|Qt::ImhNoAutoUppercase|Qt::ImhNoPredictiveText|Qt::ImhSensitiveData</set>
       </property>
+      <property name="text">
+       <string/>
+      </property>
       <property name="maxLength">
        <number>20</number>
       </property>
@@ -168,6 +174,9 @@ padding:0px;
 margin:0px;
 }</string>
       </property>
+      <property name="text">
+       <string/>
+      </property>
       <property name="maxLength">
        <number>20</number>
       </property>
@@ -197,6 +206,9 @@ border-radius:8px;
 padding:0px;
 margin:0px;
 }</string>
+      </property>
+      <property name="text">
+       <string/>
       </property>
       <property name="maxLength">
        <number>20</number>

@@ -37,7 +37,7 @@ background:qlineargradient(spread:pad, x1:0, y1:0, x2:0.988636, y2:0.369, stop:0
       <x>10</x>
       <y>70</y>
       <width>521</width>
-      <height>301</height>
+      <height>299</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -52,8 +52,11 @@ border-radius:10px;
     <property name="resizeMode">
      <enum>QListView::Fixed</enum>
     </property>
+    <property name="spacing">
+     <number>3</number>
+    </property>
     <property name="viewMode">
-     <enum>QListView::IconMode</enum>
+     <enum>QListView::ListMode</enum>
     </property>
     <property name="uniformItemSizes">
      <bool>false</bool>
@@ -63,9 +66,9 @@ border-radius:10px;
     <property name="geometry">
      <rect>
       <x>540</x>
-      <y>230</y>
+      <y>173</y>
       <width>161</width>
-      <height>141</height>
+      <height>93</height>
      </rect>
     </property>
     <property name="focusPolicy">
@@ -97,7 +100,7 @@ color:rgb(255, 255, 255);
       <x>540</x>
       <y>70</y>
       <width>161</width>
-      <height>141</height>
+      <height>93</height>
      </rect>
     </property>
     <property name="focusPolicy">
@@ -160,6 +163,38 @@ margin:0px;
     </property>
     <property name="pixmap">
      <pixmap>C:/Users/Administrator/Pictures/openstakc.png</pixmap>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="deleteButton">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>276</y>
+      <width>161</width>
+      <height>93</height>
+     </rect>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::ClickFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+border-width:2px;
+border-radius:8px;
+border-color:rgba(119, 196, 255);
+background:rgb(121, 197, 255);
+color:rgb(255, 255, 255);
+}
+QPushButton::hover{
+border-width:2px;
+border-radius:8px;
+border-color:rgba(119, 196, 255);
+background:rgba(170, 255, 127,0.93);
+color:rgb(255, 255, 255);
+}</string>
+    </property>
+    <property name="text">
+     <string>删除</string>
     </property>
    </widget>
   </widget>

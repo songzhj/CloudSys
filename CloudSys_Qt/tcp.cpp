@@ -31,7 +31,6 @@ QString TCP::receive()
     t.setSingleShot(true);
     connect(&t, SIGNAL(timeout()), &q, SLOT(quit()));  //异步调用超时退出
     connect(tcp, SIGNAL(readyRead()), &q, SLOT(quit()));  //异步调用完成退出
-    qDebug() << "before t.start()";
 
     t.start(timeout);
     q.exec();   //loop开始,阻塞
