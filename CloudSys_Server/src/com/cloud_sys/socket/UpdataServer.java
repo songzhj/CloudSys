@@ -81,16 +81,6 @@ public class UpdataServer extends Thread {
 			fs.start();
 		} catch (FtpException e) {
 			e.printStackTrace();
-			
-			//传输中途断开,异常,删除未完成文件
-			File dir=new File(path);
-			File[] files = dir.listFiles();
-			Arrays.sort(files, new Comparator<File>() {
-			   public int compare(File file1, File file2) {
-			      return (int)(file2.lastModified()-file1.lastModified());
-			   }
-			});
-			files[0].delete();
 		}
 	}
 	
@@ -105,16 +95,6 @@ public class UpdataServer extends Thread {
 				str = dataIn.readLine();
 			} catch (IOException e) {
 				e.printStackTrace();
-				
-				//传输中途断开,异常,删除未完成文件
-				File dir=new File(path);
-				File[] files = dir.listFiles();
-				Arrays.sort(files, new Comparator<File>() {
-				   public int compare(File file1, File file2) {
-				      return (int)(file2.lastModified()-file1.lastModified());
-				   }
-				});
-				files[0].delete();
 			}
 			if ("#END#".equals(str)) {
 				break;

@@ -17,7 +17,6 @@ public class FileGetterServer extends Thread{
 	 * @param dataOut
 	 */
 	public FileGetterServer(BufferedReader dataIn, BufferedWriter dataOut) {
-		// TODO Auto-generated constructor stub
 		this.dataIn = dataIn;
 		this.dataOut = dataOut;
 	}
@@ -42,10 +41,12 @@ public class FileGetterServer extends Thread{
 		}
 		String[] fileNamesArray = file.list();
 		String fileName = "";
-		for (int i = 0; i < fileNamesArray.length - 1; ++i) {
+		for (int i = 0; i < fileNamesArray.length; ++i) {
 			fileName += fileNamesArray[i] + "*";
 		}
-		fileName += fileNamesArray[fileNamesArray.length - 1];
+		if(fileName.length() != 0){
+			fileName = fileName.substring(0, fileName.length() - 1);
+		}
 		return fileName;
 	}
 
@@ -74,6 +75,7 @@ public class FileGetterServer extends Thread{
     	try {
         	dataOut.write(res);
         	dataOut.close();
+        	dataIn.close();
     	} catch(IOException e) {
     		return false;
     	}

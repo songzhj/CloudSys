@@ -57,6 +57,7 @@ public class MainServer {
 				info("#E# :: " + client.toString());
 				new Remove(dataIn, dataOut).start();
 				info(":: Finished");
+				break;
 			case "#F#":
 				//执行文件获取操作
 				info("#F# :: " + client.toString());
