@@ -95,9 +95,9 @@ void IconDisplayerWidget::on_uploadButton_clicked()
         //将文件通过ftp传至服务器端然后刷新QListWidget
         TCP tcp(Global::SERVER_IP, Global::FTP_SERVER_UPLOAD_PORT);
         tcp.send("#U#");
+        tcp.shutdown();
         FtpClient client;
         client.uploadFile(path);
-
         refreshIconInfo();
     }
 }
@@ -116,6 +116,7 @@ void IconDisplayerWidget::on_downLoadButton_clicked()
 
     TCP tcp(Global::SERVER_IP, Global::SERVICE_COMMON_PORT);
     tcp.send("#D#");
+    tcp.shutdown();
     FtpClient client;
     client.downloadFile(path + "/" + selectedFileName);
 }

@@ -55,6 +55,11 @@ public class MainServer {
 			case "#E#":
 				new Remove(dataIn, dataOut).start();
 				info("#E# :: " + client.toString());
+			case "#F#":
+				//执行文件获取操作
+				new FileGetterServer(dataIn, dataOut);
+				
+				info("#F# :: " + client.toString());
 			default:
 				break;
 			}
