@@ -34,13 +34,13 @@ public:
      * @param str utf编码的信息
      * @return Unicode编码的信息
     */
-    QString fromUtfToUnicode(QByteArray str);
+    static QString fromUtfToUnicode(QByteArray str);
     /**
      * 将Unicode的信息转为Utf-8编码的信息
      * @param str unicode编码的信息
      * @return Utf-8编码的信息
     */
-    QByteArray fromUnicodeToUtf(QByteArray str);
+    static QByteArray fromUnicodeToUtf(QByteArray str);
 
 private slots:
 
