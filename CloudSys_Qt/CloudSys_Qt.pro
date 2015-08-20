@@ -21,7 +21,8 @@ SOURCES += main.cpp\
     iconprovider.cpp \
     icondisplayerwidget.cpp \
     fileinforesolver.cpp \
-    tcp.cpp
+    tcp.cpp \
+    ftpclient.cpp
 
 HEADERS  += mainwindow.h \
     login.h \
@@ -30,7 +31,8 @@ HEADERS  += mainwindow.h \
     iconprovider.h \
     icondisplayerwidget.h \
     fileinforesolver.h \
-    tcp.h
+    tcp.h \
+    ftpclient.h
 
 FORMS    += mainwindow.ui \
     login.ui \

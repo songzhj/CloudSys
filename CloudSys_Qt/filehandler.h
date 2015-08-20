@@ -17,7 +17,7 @@ public:
      * @param filePath,读文件的文件路径
      * @return 1成功执行,-1执行失败文件打开失败
     */
-    QString ReadFile(QString filePath);
+    QString readFile(QString filePath);
     /**
      * 写文件到指定路径
      * @param filePath,写文件的文件路径
@@ -30,6 +30,12 @@ public:
      * @return 1操作正确
     */
     int DeleteFile(QString filePath);
+    /**
+     * 通过文件路径获得文件名
+     * @param
+     * @return
+    */
+    QString getFileNameByFilePath(QString filePath);
 };
 
 

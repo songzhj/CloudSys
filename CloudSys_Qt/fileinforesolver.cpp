@@ -1,6 +1,7 @@
 #include "fileinforesolver.h"
 #include "iconprovider.h"
 #include <QDebug>
+#include "ftpclient.h"
 
 FileInfoResolver::FileInfoResolver(QList<QString> fileInfos)
 {
@@ -17,7 +18,7 @@ void FileInfoResolver::addIconToQListWidget(QListWidget * listWidget)
        int loc = tempFileName.lastIndexOf(".");
        QString extension = tempFileName.right(tempFileName.length() - loc);
        //将文件名通过IconProvider的对象转换成对应的图片文件
-       listWidget->addItem(new QListWidgetItem(provider.fileExtensionIcon(extension), tempFileName));
+       listWidget->addItem(new QListWidgetItem(provider.fileExtensionIcon(extension), FtpClient::fromUtfToUnicode(tempFileName.toLatin1())));
     }
 }
 

@@ -35,6 +35,12 @@ public:
      * @return
     */
     void show();
+    /**
+     * 通过socket获取图标信息,然后对listwidget进行更新
+     * @param
+     * @return
+    */
+    void refreshIconInfo();
 private slots:
     void on_uploadButton_clicked();
 
@@ -43,8 +49,6 @@ private slots:
     void on_backButton_clicked();
 
     void on_downLoadButton_clicked();
-
-    void on_searchLineEdit_returnPressed();
 
 private:
     Ui::IconDisplayerWidget *ui;
