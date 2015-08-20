@@ -22,7 +22,7 @@ public:
      * @param  filename 文件内容
      * @return
     */
-    void downloadFile(QString filePath);
+    void downloadFile(QString downloadFileName, QString desFilePath);
     /**
      * 发送信息
      * @param data 信息内容

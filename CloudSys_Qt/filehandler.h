@@ -23,7 +23,7 @@ public:
      * @param filePath,写文件的文件路径
      * @return 1成功执行,-1执行失败文件打开失败
     */
-    int writeFile(QString filePath, QString content);
+    int writeFile(QString filePath, QByteArray content);
     /**
      * 进行删除文件操作
      * @param filePath,删除文件的文件的文件路径

@@ -24,18 +24,24 @@ FtpClient::FtpClient(QObject *parent) :
 
 }
 
-void FtpClient::downloadFile(QString filePath)
+void FtpClient::downloadFile(QString downloadFileName, QString desFilePath)
 {
     url.setPort(Global::FTP_SERVER_DOWNLOAD_PORT);
+    url.setPath(fromUnicodeToUtf(downloadFileName));
+//    QMessageBox::information(0, "url" , url.toString());
+ //   qDebug() << "url" + url.toString();
+    request->setUrl(url);
+
     reply = manager->get(*request);
     QEventLoop * loop  = new QEventLoop;
     connect(manager, SIGNAL(finished(QNetworkReply*)), loop, SLOT(quit()));
-
-    content = reply->readAll();
-    FileHandler fileHandler;
-    fileHandler.writeFile(filePath, content);
     loop->exec();
-    reply->deleteLater();   //最后要释放reply对象
+
+    QByteArray byte = reply->readAll();
+    qDebug() << content.length();
+    FileHandler fileHandler;
+    fileHandler.writeFile(desFilePath, byte);
+   // reply->deleteLater();   //最后要释放reply对象
 }
 
 void FtpClient::uploadFile(QString filePath)

@@ -135,7 +135,7 @@ void IconDisplayerWidget::on_downLoadButton_clicked()
     tcp.send("#END#");
 
     FtpClient client;
-    client.downloadFile(path + "/" + selectedFileName);
+    client.downloadFile(selectedFileName, path + "/" + selectedFileName);
     tcp.send("#OK#");
     tcp.send("#END#");
     tcp.shutdown();

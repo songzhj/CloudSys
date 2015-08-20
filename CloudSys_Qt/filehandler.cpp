@@ -22,7 +22,7 @@ QByteArray FileHandler::readFile(QString filePath)
     return content;
 }
 
-int FileHandler::writeFile(QString filePath, QString content)
+int FileHandler::writeFile(QString filePath, QByteArray content)
 {
 //    QFile file(fileName);
 //    if (!file.open(QIODevice::WriteOnly)) {
@@ -39,8 +39,7 @@ int FileHandler::writeFile(QString filePath, QString content)
         QMessageBox::warning(0, "警告", "文件下载失败");
         return -1;
     }
-    QTextStream out(&file);
-    out << content;
+    file.write(content, content.length());
     file.close();
 
     return 1;
