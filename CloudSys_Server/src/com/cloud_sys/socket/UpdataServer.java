@@ -71,7 +71,6 @@ public class UpdataServer extends Thread {
 		user.setPassword(pwd);
 		path += userName;
 		user.setHomeDirectory(path);
-		
 		List<Authority> authorities = new ArrayList<Authority>(); 
 		authorities.add(new WritePermission());
 		user.setAuthorities(authorities);

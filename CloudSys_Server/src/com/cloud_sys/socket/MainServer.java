@@ -34,32 +34,34 @@ public class MainServer {
             String str = dataIn.readLine();
             switch (str) {
 			case "#L#":
-				new LoginServer(dataIn, dataOut).start();
 				info("#L# :: " + client.toString());
+				new LoginServer(dataIn, dataOut).start();
+				info(":: Finished");
 				break;
 			case "#R#":
-				new RegisterServer(dataIn, dataOut).start();
 				info("#R# :: " + client.toString());
+				new RegisterServer(dataIn, dataOut).start();
+				info(":: Finished");
 				break;		
 			case "#D#":
-				new DownloadServer(dataIn, dataOut).start();
 				info("#D# :: " + client.toString());
+				new DownloadServer(dataIn, dataOut).start();
+				info(":: Finished");
 				break;
 			case "#U#":
-				new UpdataServer(dataIn, dataOut).start();
 				info("#U# :: " + client.toString());
+				new UpdataServer(dataIn, dataOut).start();
+				info(":: Finished");
 				break;
-			case "#F#":
-				new FileGetServer(dataIn, dataOut).start();
-				info("#F# :: " + client.toString());
 			case "#E#":
-				new Remove(dataIn, dataOut).start();
 				info("#E# :: " + client.toString());
+				new Remove(dataIn, dataOut).start();
+				info(":: Finished");
 			case "#F#":
 				//执行文件获取操作
-				new FileGetterServer(dataIn, dataOut);
-				
 				info("#F# :: " + client.toString());
+				new FileGetterServer(dataIn, dataOut).start();
+				info(":: Finished");
 			default:
 				break;
 			}

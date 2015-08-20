@@ -1,0 +1,189 @@
+[ INFO] 2015-08-20 11:27:50,975 [] [] FTP server started
+[ INFO] 2015-08-20 11:29:29,781 [] [] FTP server started
+[ INFO] 2015-08-20 11:33:37,930 [] [] FTP server started
+[ INFO] 2015-08-20 11:33:38,119 [] [49.140.58.25] CREATED
+[ INFO] 2015-08-20 11:33:38,690 [] [49.140.58.25] OPENED
+[ INFO] 2015-08-20 11:33:38,707 [] [49.140.58.25] SENT: 220 Service ready for new user.
+
+[ INFO] 2015-08-20 11:33:38,710 [] [49.140.58.25] RECEIVED: USER cy
+[ INFO] 2015-08-20 11:33:38,712 [cy] [49.140.58.25] SENT: 331 User name okay, need password for cy.
+
+[ INFO] 2015-08-20 11:33:38,754 [cy] [49.140.58.25] RECEIVED: PASS *****
+[ INFO] 2015-08-20 11:33:38,760 [cy] [49.140.58.25] Login success - cy
+[ INFO] 2015-08-20 11:33:38,760 [cy] [49.140.58.25] SENT: 230 User logged in, proceed.
+
+[ INFO] 2015-08-20 11:33:38,762 [cy] [49.140.58.25] RECEIVED: TYPE I
+[ INFO] 2015-08-20 11:33:38,767 [cy] [49.140.58.25] SENT: 200 Command TYPE okay.
+
+[ INFO] 2015-08-20 11:33:38,769 [cy] [49.140.58.25] RECEIVED: PASV
+[ INFO] 2015-08-20 11:33:38,775 [cy] [49.140.58.25] SENT: 227 Entering Passive Mode (49,140,98,76,12,185)
+
+[ INFO] 2015-08-20 11:33:38,777 [cy] [49.140.58.25] RECEIVED: ALLO 8446
+[ INFO] 2015-08-20 11:33:38,778 [cy] [49.140.58.25] SENT: 502 Command ALLO not implemented.
+
+[ INFO] 2015-08-20 11:33:38,779 [cy] [49.140.58.25] RECEIVED: STOR ui_login.h
+[ INFO] 2015-08-20 11:33:38,891 [cy] [49.140.58.25] File uploaded /ui_login.h
+[ WARN] 2015-08-20 11:33:38,891 [cy] [49.140.58.25] Releasing unreserved passive port: 3257
+[ INFO] 2015-08-20 11:33:38,892 [cy] [49.140.58.25] SENT: 150 File status okay; about to open data connection.
+
+[ INFO] 2015-08-20 11:33:38,892 [cy] [49.140.58.25] SENT: 226 Transfer complete.
+
+[ WARN] 2015-08-20 11:33:51,923 [cy] [49.140.58.25] EXCEPTION :
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(Unknown Source)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(Unknown Source)
+	at sun.nio.ch.IOUtil.read(Unknown Source)
+	at sun.nio.ch.SocketChannelImpl.read(Unknown Source)
+	at org.apache.mina.transport.socket.nio.NioProcessor.read(NioProcessor.java:280)
+	at org.apache.mina.transport.socket.nio.NioProcessor.read(NioProcessor.java:44)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:695)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:668)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:657)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$600(AbstractPollingIoProcessor.java:68)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:1141)
+	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+[ERROR] 2015-08-20 11:33:51,925 [cy] [49.140.58.25] Exception caught, closing session
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(Unknown Source)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(Unknown Source)
+	at sun.nio.ch.IOUtil.read(Unknown Source)
+	at sun.nio.ch.SocketChannelImpl.read(Unknown Source)
+	at org.apache.mina.transport.socket.nio.NioProcessor.read(NioProcessor.java:280)
+	at org.apache.mina.transport.socket.nio.NioProcessor.read(NioProcessor.java:44)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:695)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:668)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.process(AbstractPollingIoProcessor.java:657)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$600(AbstractPollingIoProcessor.java:68)
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:1141)
+	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+[ INFO] 2015-08-20 11:33:51,926 [cy] [49.140.58.25] CLOSED
+[ INFO] 2015-08-20 11:37:08,090 [] [] FTP server started
+[ INFO] 2015-08-20 11:37:08,273 [] [49.140.58.25] CREATED
+[ INFO] 2015-08-20 11:37:08,803 [] [49.140.58.25] OPENED
+[ INFO] 2015-08-20 11:37:08,821 [] [49.140.58.25] SENT: 220 Service ready for new user.
+
+[ INFO] 2015-08-20 11:37:08,824 [] [49.140.58.25] RECEIVED: USER cy
+[ INFO] 2015-08-20 11:37:08,834 [cy] [49.140.58.25] SENT: 331 User name okay, need password for cy.
+
+[ INFO] 2015-08-20 11:37:08,876 [cy] [49.140.58.25] RECEIVED: PASS *****
+[ INFO] 2015-08-20 11:37:08,886 [cy] [49.140.58.25] Login success - cy
+[ INFO] 2015-08-20 11:37:08,887 [cy] [49.140.58.25] SENT: 230 User logged in, proceed.
+
+[ INFO] 2015-08-20 11:37:08,888 [cy] [49.140.58.25] RECEIVED: TYPE I
+[ INFO] 2015-08-20 11:37:08,890 [cy] [49.140.58.25] SENT: 200 Command TYPE okay.
+
+[ INFO] 2015-08-20 11:37:08,893 [cy] [49.140.58.25] RECEIVED: PASV
+[ INFO] 2015-08-20 11:37:08,899 [cy] [49.140.58.25] SENT: 227 Entering Passive Mode (49,140,98,76,12,234)
+
+[ INFO] 2015-08-20 11:37:08,902 [cy] [49.140.58.25] RECEIVED: ALLO 20568
+[ INFO] 2015-08-20 11:37:08,903 [cy] [49.140.58.25] SENT: 502 Command ALLO not implemented.
+
+[ INFO] 2015-08-20 11:37:08,904 [cy] [49.140.58.25] RECEIVED: STOR Makefile
+[ INFO] 2015-08-20 11:37:08,971 [cy] [49.140.58.25] File uploaded /Makefile
+[ WARN] 2015-08-20 11:37:08,972 [cy] [49.140.58.25] Releasing unreserved passive port: 3306
+[ INFO] 2015-08-20 11:37:08,973 [cy] [49.140.58.25] SENT: 150 File status okay; about to open data connection.
+
+[ INFO] 2015-08-20 11:37:08,973 [cy] [49.140.58.25] SENT: 226 Transfer complete.
+
+[ INFO] 2015-08-20 11:38:46,625 [] [] FTP server started
+[ INFO] 2015-08-20 11:38:46,825 [] [49.140.58.25] CREATED
+[ INFO] 2015-08-20 11:38:47,366 [] [49.140.58.25] OPENED
+[ INFO] 2015-08-20 11:38:47,379 [] [49.140.58.25] SENT: 220 Service ready for new user.
+
+[ INFO] 2015-08-20 11:38:47,382 [] [49.140.58.25] RECEIVED: USER cy
+[ INFO] 2015-08-20 11:38:47,384 [cy] [49.140.58.25] SENT: 331 User name okay, need password for cy.
+
+[ INFO] 2015-08-20 11:38:47,577 [cy] [49.140.58.25] RECEIVED: PASS *****
+[ INFO] 2015-08-20 11:38:47,583 [cy] [49.140.58.25] Login success - cy
+[ INFO] 2015-08-20 11:38:47,584 [cy] [49.140.58.25] SENT: 230 User logged in, proceed.
+
+[ INFO] 2015-08-20 11:38:47,585 [cy] [49.140.58.25] RECEIVED: TYPE I
+[ INFO] 2015-08-20 11:38:47,586 [cy] [49.140.58.25] SENT: 200 Command TYPE okay.
+
+[ INFO] 2015-08-20 11:38:47,587 [cy] [49.140.58.25] RECEIVED: PASV
+[ INFO] 2015-08-20 11:38:47,591 [cy] [49.140.58.25] SENT: 227 Entering Passive Mode (49,140,98,76,13,33)
+
+[ INFO] 2015-08-20 11:38:47,594 [cy] [49.140.58.25] RECEIVED: ALLO 276
+[ INFO] 2015-08-20 11:38:47,595 [cy] [49.140.58.25] SENT: 502 Command ALLO not implemented.
+
+[ INFO] 2015-08-20 11:38:47,596 [cy] [49.140.58.25] RECEIVED: STOR 360wallpaper.jpg
+[ INFO] 2015-08-20 11:38:47,661 [cy] [49.140.58.25] File uploaded /360wallpaper.jpg
+[ WARN] 2015-08-20 11:38:47,662 [cy] [49.140.58.25] Releasing unreserved passive port: 3361
+[ INFO] 2015-08-20 11:38:47,662 [cy] [49.140.58.25] SENT: 150 File status okay; about to open data connection.
+
+[ INFO] 2015-08-20 11:38:47,662 [cy] [49.140.58.25] SENT: 226 Transfer complete.
+
+[ INFO] 2015-08-20 11:40:56,810 [] [49.140.58.25] CREATED
+[ INFO] 2015-08-20 11:40:56,821 [] [49.140.58.25] OPENED
+[ INFO] 2015-08-20 11:40:56,826 [] [49.140.58.25] SENT: 220 Service ready for new user.
+
+[ INFO] 2015-08-20 11:40:56,826 [] [49.140.58.25] RECEIVED: USER cy
+[ INFO] 2015-08-20 11:40:56,828 [cy] [49.140.58.25] SENT: 331 User name okay, need password for cy.
+
+[ INFO] 2015-08-20 11:40:56,829 [cy] [49.140.58.25] RECEIVED: PASS *****
+[ INFO] 2015-08-20 11:40:56,832 [cy] [49.140.58.25] Login success - cy
+[ INFO] 2015-08-20 11:40:56,833 [cy] [49.140.58.25] SENT: 230 User logged in, proceed.
+
+[ INFO] 2015-08-20 11:40:56,834 [cy] [49.140.58.25] RECEIVED: TYPE I
+[ INFO] 2015-08-20 11:40:56,835 [cy] [49.140.58.25] SENT: 200 Command TYPE okay.
+
+[ INFO] 2015-08-20 11:40:56,836 [cy] [49.140.58.25] RECEIVED: PASV
+[ INFO] 2015-08-20 11:40:56,839 [cy] [49.140.58.25] SENT: 227 Entering Passive Mode (49,140,98,76,13,63)
+
+[ INFO] 2015-08-20 11:40:56,841 [cy] [49.140.58.25] RECEIVED: ALLO 5
+[ INFO] 2015-08-20 11:40:56,842 [cy] [49.140.58.25] SENT: 502 Command ALLO not implemented.
+
+[ INFO] 2015-08-20 11:40:56,843 [cy] [49.140.58.25] RECEIVED: STOR aopalliance-1.0.jar
+[ INFO] 2015-08-20 11:40:56,890 [cy] [49.140.58.25] File uploaded /aopalliance-1.0.jar
+[ WARN] 2015-08-20 11:40:56,890 [cy] [49.140.58.25] Releasing unreserved passive port: 3391
+[ INFO] 2015-08-20 11:40:56,891 [cy] [49.140.58.25] SENT: 150 File status okay; about to open data connection.
+
+[ INFO] 2015-08-20 11:40:56,891 [cy] [49.140.58.25] SENT: 226 Transfer complete.
+
+[ INFO] 2015-08-20 11:41:02,786 [cy] [49.140.58.25] RECEIVED: QUIT
+[ INFO] 2015-08-20 11:41:02,787 [cy] [49.140.58.25] SENT: 221 Goodbye.
+
+[ INFO] 2015-08-20 11:41:02,788 [cy] [49.140.58.25] CLOSED
+[ INFO] 2015-08-20 11:43:12,046 [cy] [49.140.58.25] RECEIVED: QUIT
+[ INFO] 2015-08-20 11:43:12,048 [cy] [49.140.58.25] SENT: 221 Goodbye.
+
+[ INFO] 2015-08-20 11:43:12,049 [cy] [49.140.58.25] CLOSED
+[ INFO] 2015-08-20 11:47:01,772 [] [49.140.58.25] CREATED
+[ INFO] 2015-08-20 11:47:01,777 [] [49.140.58.25] OPENED
+[ INFO] 2015-08-20 11:47:01,778 [] [49.140.58.25] SENT: 220 Service ready for new user.
+
+[ INFO] 2015-08-20 11:47:01,787 [] [49.140.58.25] RECEIVED: USER cy
+[ INFO] 2015-08-20 11:47:01,791 [cy] [49.140.58.25] SENT: 331 User name okay, need password for cy.
+
+[ INFO] 2015-08-20 11:47:01,791 [cy] [49.140.58.25] RECEIVED: PASS *****
+[ INFO] 2015-08-20 11:47:01,792 [cy] [49.140.58.25] Login success - cy
+[ INFO] 2015-08-20 11:47:01,792 [cy] [49.140.58.25] SENT: 230 User logged in, proceed.
+
+[ INFO] 2015-08-20 11:47:01,795 [cy] [49.140.58.25] RECEIVED: TYPE I
+[ INFO] 2015-08-20 11:47:01,797 [cy] [49.140.58.25] SENT: 200 Command TYPE okay.
+
+[ INFO] 2015-08-20 11:47:01,798 [cy] [49.140.58.25] RECEIVED: PASV
+[ INFO] 2015-08-20 11:47:01,799 [cy] [49.140.58.25] SENT: 227 Entering Passive Mode (49,140,98,76,13,101)
+
+[ INFO] 2015-08-20 11:47:01,802 [cy] [49.140.58.25] RECEIVED: ALLO 1919213
+[ INFO] 2015-08-20 11:47:01,803 [cy] [49.140.58.25] SENT: 502 Command ALLO not implemented.
+
+[ INFO] 2015-08-20 11:47:01,804 [cy] [49.140.58.25] RECEIVED: STOR C%2B%2B%3F%3F%3F%3F%3F.pdf
+[ INFO] 2015-08-20 11:47:03,600 [cy] [49.140.58.25] File uploaded /C%2B%2B%3F%3F%3F%3F%3F.pdf
+[ WARN] 2015-08-20 11:47:03,601 [cy] [49.140.58.25] Releasing unreserved passive port: 3429
+[ INFO] 2015-08-20 11:47:03,601 [cy] [49.140.58.25] SENT: 150 File status okay; about to open data connection.
+
+[ INFO] 2015-08-20 11:47:03,601 [cy] [49.140.58.25] SENT: 226 Transfer complete.
+
+[ INFO] 2015-08-20 11:49:18,593 [cy] [49.140.58.25] RECEIVED: QUIT
+[ INFO] 2015-08-20 11:49:18,600 [cy] [49.140.58.25] SENT: 221 Goodbye.
+
+[ INFO] 2015-08-20 11:49:18,600 [cy] [49.140.58.25] CLOSED
