@@ -8,14 +8,12 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map.Entry;
-import java.util.Set;
 
 import com.mysql.jdbc.ResultSetMetaData;
 
 public class BaseDao {
 
-	private String url = "jdbc:mysql://49.140.58.25:3306/";
+	private String url = "jdbc:mysql://120.0.0.1:3306/";
 	private String dbs = "cloud_sys";
 	private String user = "root";
 	private String pwd = "1234";
@@ -145,15 +143,15 @@ public class BaseDao {
 		return null;
 	}
 
-	public static void main(String[] args) {
-		String sql = "select * from `user` where user_name='cy'";
-		BaseDao tool = new BaseDao();
-		ArrayList<HashMap<String, String>> list = tool.executeQuery(sql);
-		HashMap<String, String> result = list.get(0);
-		Set<Entry<String, String>> set = result.entrySet();
-		for (Entry<String, String> entry: set) { 
-System.out.println("Key: " + entry.getKey() + " Value: " + entry.getValue());
-		}
-		tool.close();
-	}
+//	public static void main(String[] args) {
+//		String sql = "select * from `user` where user_name='cy'";
+//		BaseDao tool = new BaseDao();
+//		ArrayList<HashMap<String, String>> list = tool.executeQuery(sql);
+//		HashMap<String, String> result = list.get(0);
+//		Set<Entry<String, String>> set = result.entrySet();
+//		for (Entry<String, String> entry: set) { 
+//System.out.println("Key: " + entry.getKey() + " Value: " + entry.getValue());
+//		}
+//		tool.close();
+//	}
 }

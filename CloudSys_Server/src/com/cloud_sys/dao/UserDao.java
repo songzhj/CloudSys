@@ -22,16 +22,16 @@ public class UserDao extends BaseDao {
 	 * @param userName 用户名
 	 * @return 对应该用户名的用户实体对象
 	 */
-	public User findUserByUserName(String userName) {
-		String sql = "select * from user where user_name='" + userName + "'";
-		HashMap<String, String> result = executeQuery(sql).get(0);
-		User user = new User();
-		user.setName(result.get("user_name"));
-		user.setPassword(result.get("user_pwd"));
-		user.setPhone(result.get("user_phone"));
-		user.setEmail(result.get("user_mail"));
-		return user;
-	}
+//	public User findUserByUserName(String userName) {
+//		String sql = "select * from user where user_name='" + userName + "'";
+//		HashMap<String, String> result = executeQuery(sql).get(0);
+//		User user = new User();
+//		user.setName(result.get("user_name"));
+//		user.setPassword(result.get("user_pwd"));
+//		user.setPhone(result.get("user_phone"));
+//		user.setEmail(result.get("user_mail"));
+//		return user;
+//	}
 	
 	/**
 	 * 通过用户名获得用户密码
@@ -46,9 +46,9 @@ public class UserDao extends BaseDao {
 	
 	public static void main(String[] args) {
 		//测试findUserPwdByUserName的方法
-//		UserDao userDao = new UserDao();
-//		String userPwd = userDao.findUserPwdByUserName("cy");
-//		System.err.println(userPwd);
+		UserDao userDao = new UserDao();
+		String userPwd = userDao.findUserPwdByUserName("cy");
+		System.err.println(userPwd);
 //		
 //		//测试findUserByUserName方法
 //		User user = new UserDao().findUserByUserName("cy");
