@@ -24,10 +24,11 @@ void FileInfoResolver::addIconToQListWidget(QListWidget * listWidget)
 
 QList<QString> * FileInfoResolver::getFileInfosContains(QString content)
 {
-    content = content.toUpper();
+     content = content.toUpper();
      QList<QString> * qlist = new QList<QString>;
      for (QList<QString>::iterator ite = fileInfos.begin(); ite != fileInfos.end(); ++ite) {
-        if ((*ite).toUpper().contains(content)) {
+         //要将QList中的单个文件名大写先转换成Unicode编码然后在进行比较
+        if (FtpClient::fromUtfToUnicode((*ite).toUpper().toLatin1()).contains(content)) {
             qlist->push_back(*ite);
         }
      }
