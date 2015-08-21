@@ -5,7 +5,6 @@
 #include <QDebug>
 #include <QFileDialog>
 #include <QMessageBox>
-#include "ftpclient.h"
 #include "global.h"
 #include "tcp.h"
 
@@ -39,7 +38,7 @@ QListWidget * IconDisplayerWidget::getListWidget()
 void IconDisplayerWidget::searchListByName()
 {
     QString searchContent = ui->searchLineEdit->text();
-    QList<QString> * list = fileInfoResolver->getFileInfosContains(FtpClient::fromUnicodeToUtf(searchContent));
+    QList<QString> * list = fileInfoResolver->getFileInfosContains(searchContent);
 //    for (QList<QString>::iterator ite = list->begin(); ite != list->end(); ++ite) {
 //        qDebug() << (*ite);
 //    }
