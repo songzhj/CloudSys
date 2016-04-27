@@ -22,7 +22,7 @@ public class UpdataServer extends Thread {
 	private String userName; //连接服务端的用户名
 	private String pwd = "0"; //FTP默认密码
 	private FtpServer fs; //FTP服务, 设置为成员变量为了结束时stop()
-	String path = "D:/CloudServer/";
+	String path = "G:/CloudServer/";
 	
 	
 	/**
