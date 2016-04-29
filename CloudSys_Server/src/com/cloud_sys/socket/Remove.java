@@ -10,7 +10,7 @@ public class Remove extends Thread {
 	private BufferedReader dataIn;
 	private BufferedWriter dataOut;
 	private ArrayList<String> info = new ArrayList<String>();
-	private String path = "D:/CloudServer/";
+	private String path = "G:/CloudServer/";
 		
 	/**
 	 * @param dataIn
