@@ -59,7 +59,7 @@ public class MainServer {
 				info(":: Finished");
 				break;
 			case "#F#":
-				//执行文件获取操作
+				//执行文件获取操作, 客户端加载文件列表
 				info("#F# :: " + client.toString());
 				new FileGetterServer(dataIn, dataOut).start();
 				info(":: Finished");
